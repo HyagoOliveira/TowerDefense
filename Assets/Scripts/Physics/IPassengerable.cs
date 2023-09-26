@@ -10,5 +10,7 @@ namespace TowerDefense.Physics
     {
         public Transform transform { get; }
         public MaterialChanger MaterialChanger { get; }
+
+        public bool CanPlace();
     }
 }
