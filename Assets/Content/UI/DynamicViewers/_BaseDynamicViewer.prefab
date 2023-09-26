@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8783015326655840312}
   m_Layer: 5
-  m_Name: _BaseIconValueHUD
+  m_Name: _BaseDynamicViewer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
