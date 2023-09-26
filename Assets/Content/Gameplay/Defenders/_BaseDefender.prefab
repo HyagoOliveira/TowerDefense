@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3639830791127122890}
   - component: {fileID: 5529186762830138820}
   - component: {fileID: 4911102712819903256}
+  - component: {fileID: 6356449607589754380}
   m_Layer: 0
   m_Name: _BaseDefender
   m_TagString: Untagged
@@ -77,6 +78,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 3639830791127122890}
   <MaterialChanger>k__BackingField: {fileID: 5529186762830138820}
+--- !u!208 &6356449607589754380
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247631396170801756}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1, y: 2, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &6883130534194182825
 PrefabInstance:
   m_ObjectHideFlags: 0
