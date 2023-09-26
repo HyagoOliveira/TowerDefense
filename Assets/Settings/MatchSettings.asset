@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MatchSettings
   m_EditorClassIdentifier: 
   initialScore: 0
-  initialHealth: 0
-  initialCurrency: 0
+  initialHealth: 100
+  initialCurrency: 500
