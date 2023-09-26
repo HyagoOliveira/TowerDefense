@@ -5,7 +5,6 @@ namespace TowerDefense.Managers
     [CreateAssetMenu(fileName = "MatchSettings", menuName = "Tower Defense/Match Settings", order = 110)]
     public sealed class MatchSettings : ScriptableObject
     {
-        [SerializeField] private int initialScore = 0;
         [SerializeField] private int initialHealth = 100;
         [SerializeField] private int initialCurrency = 500;
 
@@ -17,7 +16,7 @@ namespace TowerDefense.Managers
         internal void ResetValues()
         {
             Round.Value = 0;
-            Score.Value = initialScore;
+            Score.Value = 0;
             Health.Value = initialHealth;
             Currency.Value = initialCurrency;
         }
