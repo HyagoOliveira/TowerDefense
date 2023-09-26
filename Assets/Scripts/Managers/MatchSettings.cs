@@ -1,4 +1,5 @@
 using UnityEngine;
+using TowerDefense.Gameplay;
 
 namespace TowerDefense.Managers
 {
@@ -7,6 +8,9 @@ namespace TowerDefense.Managers
     {
         [SerializeField] private int initialHealth = 100;
         [SerializeField] private int initialCurrency = 500;
+
+        [field: Space]
+        [field: SerializeField] public Defender[] Defenders { get; private set; }
 
         public DynamicValue<int> Round { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Score { get; private set; } = new DynamicValue<int>();
