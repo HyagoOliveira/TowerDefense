@@ -1,6 +1,7 @@
 using UnityEngine;
 using TowerDefense.Physics;
 using TowerDefense.Gameplay;
+using System;
 
 namespace TowerDefense.Managers
 {
@@ -12,6 +13,8 @@ namespace TowerDefense.Managers
 
         [field: Space]
         [field: SerializeField] public Defender[] Defenders { get; private set; }
+
+        public event Action OnStarted;
 
         public DynamicValue<int> Round { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Score { get; private set; } = new DynamicValue<int>();
@@ -29,6 +32,7 @@ namespace TowerDefense.Managers
         private void Start()
         {
             ResetValues();
+            OnStarted?.Invoke();
         }
 
         private void ResetValues()
