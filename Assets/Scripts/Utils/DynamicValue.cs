@@ -25,7 +25,5 @@ namespace TowerDefense
         }
 
         private T value;
-
-        public DynamicValue(T value) => this.value = value;
     }
 }
