@@ -1,4 +1,5 @@
 using UnityEngine;
+using TowerDefense.Physics;
 using TowerDefense.Gameplay;
 
 namespace TowerDefense.Managers
@@ -17,12 +18,31 @@ namespace TowerDefense.Managers
         public DynamicValue<int> Health { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
 
-        internal void ResetValues()
+        private MousePlacer placer;
+
+        internal void Initialize(MousePlacer placer)
+        {
+            this.placer = placer;
+            Start();
+        }
+
+        private void Start()
+        {
+            ResetValues();
+        }
+
+        private void ResetValues()
         {
             Round.Value = 0;
             Score.Value = 0;
             Health.Value = initialHealth;
             Currency.Value = initialCurrency;
+        }
+
+        public void SpawnDefender(int index)
+        {
+            var instance = Instantiate(Defenders[index]);
+            placer.SetPassenger(instance);
         }
     }
 }

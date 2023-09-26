@@ -1,4 +1,5 @@
 using UnityEngine;
+using TowerDefense.Physics;
 
 namespace TowerDefense.Managers
 {
@@ -7,7 +8,9 @@ namespace TowerDefense.Managers
     public sealed class MatchManager : MonoBehaviour
     {
         [SerializeField] private MatchSettings settings;
+        [SerializeField] private MousePlacer placer;
 
-        private void Start() => settings.ResetValues();
+        private void Reset() => placer = GetComponentInChildren<MousePlacer>();
+        private void Start() => settings.Initialize(placer);
     }
 }
