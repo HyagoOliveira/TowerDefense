@@ -43,7 +43,7 @@ namespace TowerDefense.Physics
         {
             this.passenger = passenger;
             this.passenger.transform.SetParent(transform);
-            this.passenger.transform.position = passengerOffset;
+            this.passenger.transform.localPosition = passengerOffset;
 
             enabled = true; // For optimization
         }
@@ -84,6 +84,6 @@ namespace TowerDefense.Physics
             enabled = false; // For optimization
         }
 
-        private bool CanPlacePassenger() => true;
+        private bool CanPlacePassenger() => passenger.CanPlace();
     }
 }
