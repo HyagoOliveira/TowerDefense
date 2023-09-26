@@ -7,7 +7,7 @@ namespace TowerDefense.UI
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Button))]
-    public sealed class DefenseButton : MonoBehaviour
+    public sealed class DefenderButton : MonoBehaviour
     {
         [SerializeField] private Button button;
         [SerializeField] private Defender defender;
