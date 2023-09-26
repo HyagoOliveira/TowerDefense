@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TowerDefense.Physics;
-using TowerDefense.Gameplay;
+using TowerDefense.Managers;
 
 namespace TowerDefense.UI
 {
@@ -10,21 +9,20 @@ namespace TowerDefense.UI
     public sealed class DefenderButton : MonoBehaviour
     {
         [SerializeField] private Button button;
-        [SerializeField] private Defender defender;
+        [SerializeField] private MatchSettings settings;
+
+        private int defenderIndex;
 
         private void Reset() => button = GetComponent<Button>();
         private void OnEnable() => button.onClick.AddListener(HandleButtonClicked);
         private void OnDisable() => button.onClick.RemoveListener(HandleButtonClicked);
 
-        private void HandleButtonClicked() => SpawnDefender();
-
-        //TODO move code elsewhere
-        private void SpawnDefender()
+        internal void Initialize(int defenderIndex, Transform parent)
         {
-            var placer = FindObjectOfType<MousePlacer>();
-            var instance = Instantiate(defender);
-
-            placer.SetPassenger(instance);
+            this.defenderIndex = defenderIndex;
+            transform.SetParent(parent);
         }
+
+        private void HandleButtonClicked() => settings.SpawnDefender(defenderIndex);
     }
 }

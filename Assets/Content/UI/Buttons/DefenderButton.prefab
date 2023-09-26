@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 216229958392376183}
   - component: {fileID: 3154263343042367392}
   m_Layer: 5
-  m_Name: DefenseButton
+  m_Name: DefenderButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 216229958392376183}
-  defender: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+  settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
 --- !u!1 &4812451425354038676
 GameObject:
   m_ObjectHideFlags: 0
