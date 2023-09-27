@@ -10,6 +10,7 @@ namespace TowerDefense.Gameplay
     public sealed class Defender : MonoBehaviour, IPassengerable
     {
         [SerializeField] private Collider collider;
+        [SerializeField] private int price = 0;
 
         [field: SerializeField] public MaterialChanger MaterialChanger { get; private set; }
 
@@ -34,5 +35,8 @@ namespace TowerDefense.Gameplay
 
             return !hasCollision;
         }
+
+        public string GetName() => gameObject.name;
+        public string GetPrice() => price.ToString("D2");
     }
 }
