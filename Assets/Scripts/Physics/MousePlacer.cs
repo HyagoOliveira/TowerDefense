@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityPhysics = UnityEngine.Physics;
 
@@ -19,6 +20,8 @@ namespace TowerDefense.Physics
         [Header("Feedbacks")]
         [SerializeField] private Material failFeedback;
         [SerializeField] private Material successFeedback;
+
+        public event Action<IPassengerable> OnPlacePassenger;
 
         public bool HasValidPosition { get; private set; }
 
@@ -79,9 +82,11 @@ namespace TowerDefense.Physics
             passenger.transform.SetParent(null);
             passenger.transform.position -= passengerOffset;
 
-            passenger = null;
 
             enabled = false; // For optimization
+
+            OnPlacePassenger?.Invoke(passenger);
+            passenger = null;
         }
 
         private bool CanPlacePassenger() => passenger.CanPlace();
