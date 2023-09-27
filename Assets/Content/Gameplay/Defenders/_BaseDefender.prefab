@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5529186762830138820}
   - component: {fileID: 4911102712819903256}
   - component: {fileID: 6356449607589754380}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: _BaseDefender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 3639830791127122890}
+  price: 0
   <MaterialChanger>k__BackingField: {fileID: 5529186762830138820}
 --- !u!208 &6356449607589754380
 NavMeshObstacle:
@@ -101,9 +102,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2560491086778375033}
     m_Modifications:
+    - target: {fileID: 4371114942742640158, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4371114944343626337, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
       propertyPath: m_Name
       value: PlaceholderDefenseModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371114944343626337, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4371114944343626342, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
       propertyPath: m_RootOrder
@@ -148,6 +157,10 @@ PrefabInstance:
     - target: {fileID: 4371114944343626342, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371114944415218145, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
