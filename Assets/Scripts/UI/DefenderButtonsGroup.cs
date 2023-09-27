@@ -9,7 +9,7 @@ namespace TowerDefense.UI
         [SerializeField] private DefenderButton prefab;
         [SerializeField] private MatchSettings settings;
 
-        private DefenderButton[] buttons;
+        private DefenderButton[] buttons = new DefenderButton[0];
 
         private void OnEnable() => settings.OnStarted += HandleMatchStarted;
         private void OnDisable() => settings.OnStarted -= HandleMatchStarted;
