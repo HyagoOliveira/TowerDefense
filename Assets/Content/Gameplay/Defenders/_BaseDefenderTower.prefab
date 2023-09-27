@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 6356449607589754380}
-  <MaterialChanger>k__BackingField: {fileID: 5529186762830138820}
+  material: {fileID: 5529186762830138820}
 --- !u!1001 &8075266887926511331
 PrefabInstance:
   m_ObjectHideFlags: 0

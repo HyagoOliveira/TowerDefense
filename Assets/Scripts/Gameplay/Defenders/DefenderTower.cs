@@ -6,19 +6,19 @@ namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(NavMeshObstacle))]
-    [RequireComponent(typeof(MaterialChanger))]
+    [RequireComponent(typeof(MaterialReplacer))]
     public sealed class DefenderTower : MonoBehaviour
     {
         [SerializeField] private NavMeshObstacle obstacle;
+        [SerializeField] private MaterialReplacer material;
 
-        [field: SerializeField] public MaterialChanger MaterialChanger { get; private set; }
-
-        public string Name => gameObject.name;
         public int Price => 0;
+        public string Name => gameObject.name;
+        public MaterialReplacer Material => material;
 
         private void Reset()
         {
-            MaterialChanger = GetComponent<MaterialChanger>();
+            material = GetComponent<MaterialReplacer>();
             obstacle = GetComponentInChildren<NavMeshObstacle>();
         }
 

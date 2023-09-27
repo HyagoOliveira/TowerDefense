@@ -3,7 +3,7 @@ using UnityEngine;
 namespace TowerDefense.VisualEffects
 {
     [DisallowMultipleComponent]
-    public sealed class MaterialChanger : MonoBehaviour
+    public sealed class MaterialReplacer : MonoBehaviour
     {
         [SerializeField] private Renderer[] renderers;
 

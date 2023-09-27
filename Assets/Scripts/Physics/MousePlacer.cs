@@ -71,12 +71,12 @@ namespace TowerDefense.Physics
         private void UpdatePassengerMaterialFeedback()
         {
             var material = HasValidPosition ? successFeedback : failFeedback;
-            tower.MaterialChanger.SetMaterials(material);
+            tower.Material.SetMaterials(material);
         }
 
         private void PlaceTower()
         {
-            tower.MaterialChanger.ResetMaterials();
+            tower.Material.ResetMaterials();
 
             tower.transform.SetParent(null);
             tower.transform.position -= towerOffset;
