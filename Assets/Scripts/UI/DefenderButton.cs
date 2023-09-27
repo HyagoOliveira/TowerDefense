@@ -31,8 +31,8 @@ namespace TowerDefense.UI
 
             var defender = settings.Defenders[defenderIndex];
 
-            defenderName.text = defender.GetName();
-            defenderPrice.text = defender.GetPrice();
+            defenderName.text = defender.Name;
+            defenderPrice.text = defender.Price.ToString("D2");
         }
 
         private void HandleButtonClicked() => settings.SpawnDefender(defenderIndex);

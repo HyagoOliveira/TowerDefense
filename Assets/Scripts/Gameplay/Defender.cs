@@ -12,6 +12,9 @@ namespace TowerDefense.Gameplay
         [SerializeField] private Collider collider;
         [SerializeField] private int price = 0;
 
+        public int Price => price;
+        public string Name => gameObject.name;
+
         [field: SerializeField] public MaterialChanger MaterialChanger { get; private set; }
 
         private void Reset()
@@ -35,8 +38,5 @@ namespace TowerDefense.Gameplay
 
             return !hasCollision;
         }
-
-        public string GetName() => gameObject.name;
-        public string GetPrice() => price.ToString("D2");
     }
 }
