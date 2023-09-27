@@ -6,7 +6,7 @@ using UnityPhysics = UnityEngine.Physics;
 namespace TowerDefense.Physics
 {
     [DisallowMultipleComponent]
-    public sealed class MousePlacer : MonoBehaviour
+    public sealed class TowerPlacer : MonoBehaviour
     {
         [Header("Physics Detection")]
         [SerializeField] private LayerMask collision;

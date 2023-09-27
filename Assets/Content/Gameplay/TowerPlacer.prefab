@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8450668725398072411}
   - component: {fileID: 8450668725398072408}
   m_Layer: 0
-  m_Name: MousePlacer
+  m_Name: TowerPlacer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

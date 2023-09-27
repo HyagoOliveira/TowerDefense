@@ -55,7 +55,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8450668725398072409, guid: 41eab68bebb48f4429aa1a33fe7b63a8, type: 3}
       propertyPath: m_Name
-      value: MousePlacer
+      value: TowerPlacer
       objectReference: {fileID: 0}
     - target: {fileID: 8450668725398072411, guid: 41eab68bebb48f4429aa1a33fe7b63a8, type: 3}
       propertyPath: m_RootOrder

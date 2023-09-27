@@ -8,9 +8,9 @@ namespace TowerDefense.Managers
     public sealed class MatchManager : MonoBehaviour
     {
         [SerializeField] private MatchSettings settings;
-        [SerializeField] private MousePlacer placer;
+        [SerializeField] private TowerPlacer placer;
 
-        private void Reset() => placer = GetComponentInChildren<MousePlacer>();
+        private void Reset() => placer = GetComponentInChildren<TowerPlacer>();
         private void Awake() => settings.Initialize(placer);
         private void Start() => settings.Start();
     }
