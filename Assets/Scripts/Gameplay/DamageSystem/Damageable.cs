@@ -1,0 +1,29 @@
+using UnityEngine;
+
+namespace TowerDefense.Gameplay
+{
+    [DisallowMultipleComponent]
+    [RequireComponent(typeof(DamageableFeedback))]
+    public sealed class Damageable : MonoBehaviour
+    {
+        [SerializeField] private int initialEnergy = 10;
+        [SerializeField] private DamageableFeedback feedback;
+
+        public DynamicValue<int> Energy { get; private set; } = new DynamicValue<int>();
+
+        private void Reset() => feedback = GetComponent<DamageableFeedback>();
+        private void Awake() => Energy.Value = initialEnergy;
+
+        public void TakeDamage(int damage)
+        {
+            var hasEnergy = Energy.Value > 0;
+            if (!hasEnergy) return;
+
+            Energy.Value -= damage;
+            feedback.Play();
+
+            var noEnergy = Energy.Value <= 0;
+            if (noEnergy) Destroy(gameObject);
+        }
+    }
+}
