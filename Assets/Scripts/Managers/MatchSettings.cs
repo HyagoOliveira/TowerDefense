@@ -23,13 +23,9 @@ namespace TowerDefense.Managers
 
         private MousePlacer placer;
 
-        internal void Initialize(MousePlacer placer)
-        {
-            this.placer = placer;
-            Start();
-        }
+        internal void Initialize(MousePlacer placer) => this.placer = placer;
 
-        private void Start()
+        internal void Start()
         {
             ResetValues();
             OnStarted?.Invoke();

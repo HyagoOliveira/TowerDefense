@@ -11,6 +11,7 @@ namespace TowerDefense.Managers
         [SerializeField] private MousePlacer placer;
 
         private void Reset() => placer = GetComponentInChildren<MousePlacer>();
-        private void Start() => settings.Initialize(placer);
+        private void Awake() => settings.Initialize(placer);
+        private void Start() => settings.Start();
     }
 }
