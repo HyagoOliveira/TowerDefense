@@ -40,7 +40,7 @@ namespace TowerDefense.Managers
             Calculator.Purchase(tower);
 
             var instance = Instantiate(tower);
-            Placer.SetPassenger(instance);
+            Placer.SetTower(instance);
         }
 
         public DefenderTower GetTower(int index) => towers[index];

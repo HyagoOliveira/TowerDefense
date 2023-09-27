@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 100
   initialCurrency: 500
-  <Defenders>k__BackingField:
+  towers:
   - {fileID: 4788132033996679829, guid: 39c3b6aa868bad3408dd35fe8180b8b4, type: 3}
-  - {fileID: 8750231553219050090, guid: 7e0c9d262e4bcfe4e8649f8e7724f59a, type: 3}
   - {fileID: 8787251071405704110, guid: 3c9e53fc09a173d439b332c82f6ace83, type: 3}
+  - {fileID: 8750231553219050090, guid: 7e0c9d262e4bcfe4e8649f8e7724f59a, type: 3}

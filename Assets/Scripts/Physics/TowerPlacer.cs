@@ -40,11 +40,13 @@ namespace TowerDefense.Physics
             }*/
         }
 
-        public void SetPassenger(DefenderTower tower)
+        public void SetTower(DefenderTower tower)
         {
             this.tower = tower;
             this.tower.transform.SetParent(transform);
             this.tower.transform.localPosition = towerOffset;
+
+            gameObject.SetActive(true);
         }
 
         private void UpdatePositionUsingMouse()
