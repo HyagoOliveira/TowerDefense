@@ -9,15 +9,18 @@ namespace TowerDefense.Gameplay
     {
         [SerializeField, Min(0f)] private float speed = 1f;
         [SerializeField, Min(0f)] private float timeAlive = 10f;
+        [SerializeField] private Damager damager;
         [SerializeField] private Vector3 direction = Vector3.forward;
 
+        private void Reset() => damager = GetComponent<Damager>();
         private void Start() => Invoke(nameof(Destroy), timeAlive);
         private void FixedUpdate() => UpdateMovement();
 
-        public void Fire(float speed, Vector3 direction)
+        public void Fire(float speed, Vector3 direction, int damage)
         {
             this.speed = speed;
             this.direction = direction;
+            damager.Damage = damage;
         }
 
         private void UpdateMovement()

@@ -79,6 +79,7 @@ MonoBehaviour:
   speed: 1
   timeAlive: 10
   direction: {x: 0, y: 0, z: 0}
+  damager: {fileID: 8661092279200886286}
 --- !u!1 &4996197442425352071
 GameObject:
   m_ObjectHideFlags: 0

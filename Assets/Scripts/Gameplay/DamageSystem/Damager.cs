@@ -9,6 +9,12 @@ namespace TowerDefense.Gameplay
         [SerializeField, Min(0)] private int damage = 1;
         [SerializeField] private LayerMask layers;
 
+        public int Damage
+        {
+            get => damage;
+            set => damage = Mathf.Min(0, value);
+        }
+
         private const int maxColliders = 10;
         private readonly Collider[] colliders = new Collider[maxColliders];
 
