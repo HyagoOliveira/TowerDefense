@@ -1,7 +1,7 @@
+using System;
 using UnityEngine;
 using TowerDefense.Physics;
 using TowerDefense.Gameplay;
-using System;
 
 namespace TowerDefense.Managers
 {
@@ -17,6 +17,7 @@ namespace TowerDefense.Managers
         public int TowerSize => towers.Length;
 
         public TowerPlacer Placer { get; private set; }
+        public CurrencyCalculator Calculator { get; private set; }
 
         public DynamicValue<int> Round { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Score { get; private set; } = new DynamicValue<int>();
@@ -34,17 +35,13 @@ namespace TowerDefense.Managers
         public void TrySpawnTower(int index)
         {
             var tower = GetTower(index);
-            var price = tower.Price;
-            var canPurchase = Currency.Value >= price;
+            if (!Calculator.CanPurchase(tower)) return;
 
-            if (!canPurchase) return;
+            Calculator.Purchase(tower);
 
             var instance = Instantiate(tower);
             Placer.SetPassenger(instance);
-
-            Currency.Value -= price;
         }
-
 
         public DefenderTower GetTower(int index) => towers[index];
 
@@ -54,6 +51,8 @@ namespace TowerDefense.Managers
             Score.Value = 0;
             Health.Value = initialHealth;
             Currency.Value = initialCurrency;
+
+            Calculator = new CurrencyCalculator(Currency);
         }
     }
 }
