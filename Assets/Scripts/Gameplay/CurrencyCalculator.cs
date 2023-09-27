@@ -22,7 +22,7 @@ namespace TowerDefense.Gameplay
         public void Purchase(DefenderTower tower)
         {
             var value = currency.Value - tower.Price;
-            currency.Value = Mathf.Min(0, value);
+            currency.Value = Mathf.Max(0, value);
 
             // Add Analytics here if a valid project
         }
