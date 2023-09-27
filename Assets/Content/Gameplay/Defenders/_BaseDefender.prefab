@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2560491086778375033}
   - component: {fileID: 3639830791127122890}
+  - component: {fileID: 6356449607589754380}
   - component: {fileID: 5529186762830138820}
   - component: {fileID: 4911102712819903256}
-  - component: {fileID: 6356449607589754380}
   m_Layer: 7
   m_Name: _BaseDefender
   m_TagString: Untagged
@@ -44,11 +44,27 @@ CapsuleCollider:
   m_GameObject: {fileID: 3247631396170801756}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!208 &6356449607589754380
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247631396170801756}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1, y: 2, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &5529186762830138820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,24 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 3639830791127122890}
-  price: 0
   <MaterialChanger>k__BackingField: {fileID: 5529186762830138820}
---- !u!208 &6356449607589754380
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3247631396170801756}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 1, y: 2, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 2, z: 0}
-  m_TimeToStationary: 0.5
+  <Price>k__BackingField: 1
 --- !u!1001 &6883130534194182825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371114944343626337, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
       propertyPath: m_Name
-      value: PlaceholderDefenseModel
+      value: PlaceholderModel_00
       objectReference: {fileID: 0}
     - target: {fileID: 4371114944343626337, guid: 9501d7e4aea99904fba30d1890c1ddf3, type: 3}
       propertyPath: m_Layer

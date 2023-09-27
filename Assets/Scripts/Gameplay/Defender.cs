@@ -6,16 +6,16 @@ using UnityPhysics = UnityEngine.Physics;
 namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(MaterialChanger))]
     public sealed class Defender : MonoBehaviour, IPassengerable
     {
         [SerializeField] private Collider collider;
-        [SerializeField] private int price = 0;
-
-        public int Price => price;
-        public string Name => gameObject.name;
 
         [field: SerializeField] public MaterialChanger MaterialChanger { get; private set; }
+        [field: SerializeField, Min(0F)] public int Price { get; private set; } = 1;
+
+        public string Name => gameObject.name;
 
         private void Reset()
         {
