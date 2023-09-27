@@ -3,6 +3,8 @@ using UnityEngine;
 namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(Damager))]
+    [RequireComponent(typeof(SphereCollider))]
     public sealed class Bullet : MonoBehaviour
     {
         [SerializeField, Min(0f)] private float speed = 1f;
