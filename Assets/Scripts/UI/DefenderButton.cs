@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using TowerDefense.Managers;
@@ -11,6 +12,10 @@ namespace TowerDefense.UI
         [SerializeField] private Button button;
         [SerializeField] private MatchSettings settings;
 
+        [Space]
+        [SerializeField] private TMP_Text defenderName;
+        [SerializeField] private TMP_Text defenderPrice;
+
         private int defenderIndex;
 
         private void Reset() => button = GetComponent<Button>();
@@ -20,8 +25,14 @@ namespace TowerDefense.UI
         internal void Initialize(int defenderIndex, Transform parent)
         {
             this.defenderIndex = defenderIndex;
+
             transform.SetParent(parent);
             transform.localScale = Vector3.one;
+
+            var defender = settings.Defenders[defenderIndex];
+
+            defenderName.text = defender.GetName();
+            defenderPrice.text = defender.GetPrice();
         }
 
         private void HandleButtonClicked() => settings.SpawnDefender(defenderIndex);
