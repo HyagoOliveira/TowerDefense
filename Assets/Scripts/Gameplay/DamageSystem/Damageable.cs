@@ -4,6 +4,7 @@ namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(DamageableFeedback))]
+    [DefaultExecutionOrder(ExecutionOrder.COMPONENTS)]
     public sealed class Damageable : MonoBehaviour
     {
         [SerializeField] private int initialEnergy = 10;

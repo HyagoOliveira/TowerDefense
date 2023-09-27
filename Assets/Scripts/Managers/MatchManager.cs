@@ -4,7 +4,7 @@ using TowerDefense.Physics;
 namespace TowerDefense.Managers
 {
     [DisallowMultipleComponent]
-    [DefaultExecutionOrder(-1)]
+    [DefaultExecutionOrder(ExecutionOrder.MANAGERS)]
     public sealed class MatchManager : MonoBehaviour
     {
         [SerializeField] private MatchSettings settings;
