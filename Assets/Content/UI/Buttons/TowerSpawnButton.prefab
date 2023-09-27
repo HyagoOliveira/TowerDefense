@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 216229958392376183}
   - component: {fileID: 3154263343042367392}
   m_Layer: 5
-  m_Name: DefenderButton
+  m_Name: TowerSpawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 216229958392376183}
   settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
-  defenderName: {fileID: 3814515533391567776}
-  defenderPrice: {fileID: 3245819803307753970}
+  towerName: {fileID: 3814515533391567776}
+  towerPrice: {fileID: 3245819803307753970}
 --- !u!1 &4812451425354038676
 GameObject:
   m_ObjectHideFlags: 0

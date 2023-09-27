@@ -28,17 +28,16 @@ namespace TowerDefense.Physics
         private DefenderTower tower;
 
         private void Awake() => mainCamera = Camera.main;
-        private void Start() => enabled = false; // For optimization
 
         private void Update()
         {
             UpdatePositionUsingMouse();
 
-            if (tower != null)
+            /*if (tower != null)
             {
                 UpdatePassengerMaterialFeedback();
                 UpdatePlaceInput();
-            }
+            }*/
         }
 
         public void SetPassenger(DefenderTower tower)
@@ -46,8 +45,6 @@ namespace TowerDefense.Physics
             this.tower = tower;
             this.tower.transform.SetParent(transform);
             this.tower.transform.localPosition = towerOffset;
-
-            enabled = true; // For optimization
         }
 
         private void UpdatePositionUsingMouse()
@@ -80,13 +77,10 @@ namespace TowerDefense.Physics
 
             tower.transform.SetParent(null);
             tower.transform.position -= towerOffset;
-
-            enabled = false; // For optimization
+            transform.position = Vector3.zero;
 
             OnPlaceTower?.Invoke(tower);
             tower = null;
-
-            transform.position = Vector3.zero;
         }
 
         private bool CanPlaceTower() => tower.CanPlace();

@@ -10,7 +10,7 @@ namespace TowerDefense.Managers
         [SerializeField] private MatchSettings settings;
         [SerializeField] private TowerPlacer placer;
 
-        private void Reset() => placer = GetComponentInChildren<TowerPlacer>();
+        private void Reset() => placer = GetComponentInChildren<TowerPlacer>(includeInactive: true);
         private void Awake() => settings.Initialize(placer);
         private void Start() => settings.Start();
     }

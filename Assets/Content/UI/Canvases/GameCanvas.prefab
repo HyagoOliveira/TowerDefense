@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4571462703393976395, guid: 97f240427de90dc4f9cc88c52f391f8f, type: 3}
+      propertyPath: m_Name
+      value: TowerSpawnButtonGroup
+      objectReference: {fileID: 0}
     - target: {fileID: 5375829235125970806, guid: 97f240427de90dc4f9cc88c52f391f8f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

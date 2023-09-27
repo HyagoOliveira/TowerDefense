@@ -7,34 +7,33 @@ namespace TowerDefense.UI
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Button))]
-    public sealed class DefenderButton : MonoBehaviour
+    public sealed class TowerSpawnButton : MonoBehaviour
     {
         [SerializeField] private Button button;
         [SerializeField] private MatchSettings settings;
 
         [Space]
-        [SerializeField] private TMP_Text defenderName;
-        [SerializeField] private TMP_Text defenderPrice;
+        [SerializeField] private TMP_Text towerName;
+        [SerializeField] private TMP_Text towerPrice;
 
-        private int defenderIndex;
+        private int towerIndex;
 
         private void Reset() => button = GetComponent<Button>();
         private void OnEnable() => button.onClick.AddListener(HandleButtonClicked);
         private void OnDisable() => button.onClick.RemoveListener(HandleButtonClicked);
 
-        internal void Initialize(int defenderIndex, Transform parent)
+        internal void Initialize(Transform parent, int towerIndex)
         {
-            this.defenderIndex = defenderIndex;
+            this.towerIndex = towerIndex;
+            var tower = settings.GetTower(towerIndex);
 
             transform.SetParent(parent);
             transform.localScale = Vector3.one;
 
-            var defender = settings.Defenders[defenderIndex];
-
-            defenderName.text = defender.Name;
-            defenderPrice.text = defender.Price.ToString("D2");
+            towerName.text = tower.Name;
+            towerPrice.text = tower.Price.ToString("D2");
         }
 
-        private void HandleButtonClicked() => settings.TrySpawnDefender(defenderIndex);
+        private void HandleButtonClicked() => settings.TrySpawnTower(towerIndex);
     }
 }

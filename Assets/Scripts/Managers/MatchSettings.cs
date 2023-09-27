@@ -10,11 +10,11 @@ namespace TowerDefense.Managers
     {
         [SerializeField] private int initialHealth = 100;
         [SerializeField] private int initialCurrency = 500;
-
-        [field: Space]
-        [field: SerializeField] public DefenderTower[] Defenders { get; private set; }
+        [SerializeField] private DefenderTower[] towers = new DefenderTower[0];
 
         public event Action OnStarted;
+
+        public int TowerSize => towers.Length;
 
         public TowerPlacer Placer { get; private set; }
 
@@ -31,26 +31,29 @@ namespace TowerDefense.Managers
             OnStarted?.Invoke();
         }
 
+        public void TrySpawnTower(int index)
+        {
+            var tower = GetTower(index);
+            var price = tower.Price;
+            var canPurchase = Currency.Value >= price;
+
+            if (!canPurchase) return;
+
+            var instance = Instantiate(tower);
+            Placer.SetPassenger(instance);
+
+            Currency.Value -= price;
+        }
+
+
+        public DefenderTower GetTower(int index) => towers[index];
+
         private void ResetValues()
         {
             Round.Value = 0;
             Score.Value = 0;
             Health.Value = initialHealth;
             Currency.Value = initialCurrency;
-        }
-
-        public void TrySpawnDefender(int index)
-        {
-            var defender = Defenders[index];
-            var price = defender.Price;
-            var canPurchase = Currency.Value >= price;
-
-            if (!canPurchase) return;
-
-            var instance = Instantiate(defender);
-            Placer.SetPassenger(instance);
-
-            Currency.Value -= price;
         }
     }
 }

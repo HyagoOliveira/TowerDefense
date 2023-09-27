@@ -4,12 +4,12 @@ using TowerDefense.Managers;
 namespace TowerDefense.UI
 {
     [DisallowMultipleComponent]
-    public sealed class DefenderButtonsGroup : MonoBehaviour
+    public sealed class TowerSpawnButtonGroup : MonoBehaviour
     {
-        [SerializeField] private DefenderButton prefab;
+        [SerializeField] private TowerSpawnButton prefab;
         [SerializeField] private MatchSettings settings;
 
-        private DefenderButton[] buttons = new DefenderButton[0];
+        private TowerSpawnButton[] buttons = new TowerSpawnButton[0];
 
         private void OnEnable() => settings.OnStarted += HandleMatchStarted;
         private void OnDisable() => settings.OnStarted -= HandleMatchStarted;
@@ -24,12 +24,12 @@ namespace TowerDefense.UI
 
         private void Instantiate()
         {
-            buttons = new DefenderButton[settings.Defenders.Length];
+            buttons = new TowerSpawnButton[settings.TowerSize];
 
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i] = Instantiate(prefab);
-                buttons[i].Initialize(i, transform);
+                buttons[i].Initialize(transform, i);
             }
         }
 
@@ -40,7 +40,7 @@ namespace TowerDefense.UI
                 Destroy(button.gameObject);
             }
 
-            buttons = new DefenderButton[0];
+            buttons = new TowerSpawnButton[0];
         }
     }
 }
