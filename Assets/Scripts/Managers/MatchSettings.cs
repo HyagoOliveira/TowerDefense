@@ -39,10 +39,18 @@ namespace TowerDefense.Managers
             Currency.Value = initialCurrency;
         }
 
-        public void SpawnDefender(int index)
+        public void TrySpawnDefender(int index)
         {
-            var instance = Instantiate(Defenders[index]);
+            var defender = Defenders[index];
+            var price = defender.Price;
+            var canPurchase = Currency.Value >= price;
+
+            if (!canPurchase) return;
+
+            var instance = Instantiate(defender);
             Placer.SetPassenger(instance);
+
+            Currency.Value -= price;
         }
     }
 }

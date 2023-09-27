@@ -35,6 +35,6 @@ namespace TowerDefense.UI
             defenderPrice.text = defender.Price.ToString("D2");
         }
 
-        private void HandleButtonClicked() => settings.SpawnDefender(defenderIndex);
+        private void HandleButtonClicked() => settings.TrySpawnDefender(defenderIndex);
     }
 }
