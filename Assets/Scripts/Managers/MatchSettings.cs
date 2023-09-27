@@ -16,14 +16,15 @@ namespace TowerDefense.Managers
 
         public event Action OnStarted;
 
+        public MousePlacer Placer { get; private set; }
+
         public DynamicValue<int> Round { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Score { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Health { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
 
-        private MousePlacer placer;
 
-        internal void Initialize(MousePlacer placer) => this.placer = placer;
+        internal void Initialize(MousePlacer placer) => Placer = placer;
 
         internal void Start()
         {
@@ -42,7 +43,7 @@ namespace TowerDefense.Managers
         public void SpawnDefender(int index)
         {
             var instance = Instantiate(Defenders[index]);
-            placer.SetPassenger(instance);
+            Placer.SetPassenger(instance);
         }
     }
 }
