@@ -23,7 +23,6 @@ namespace TowerDefense.Managers
         public DynamicValue<int> Health { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
 
-
         internal void Initialize(MousePlacer placer) => Placer = placer;
 
         internal void Start()

@@ -82,11 +82,12 @@ namespace TowerDefense.Physics
             passenger.transform.SetParent(null);
             passenger.transform.position -= passengerOffset;
 
-
             enabled = false; // For optimization
 
             OnPlacePassenger?.Invoke(passenger);
             passenger = null;
+
+            transform.position = Vector3.zero;
         }
 
         private bool CanPlacePassenger() => passenger.CanPlace();
