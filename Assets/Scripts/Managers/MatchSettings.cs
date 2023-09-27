@@ -12,7 +12,7 @@ namespace TowerDefense.Managers
         [SerializeField] private int initialCurrency = 500;
 
         [field: Space]
-        [field: SerializeField] public Defender[] Defenders { get; private set; }
+        [field: SerializeField] public DefenderTower[] Defenders { get; private set; }
 
         public event Action OnStarted;
 
