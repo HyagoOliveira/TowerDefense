@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using TowerDefense.Physics;
 using TowerDefense.VisualEffects;
 
 namespace TowerDefense.Gameplay
@@ -8,7 +7,7 @@ namespace TowerDefense.Gameplay
     [DisallowMultipleComponent]
     [RequireComponent(typeof(NavMeshObstacle))]
     [RequireComponent(typeof(MaterialChanger))]
-    public sealed class DefenderTower : MonoBehaviour, IPassengerable
+    public sealed class DefenderTower : MonoBehaviour
     {
         [SerializeField] private NavMeshObstacle obstacle;
 

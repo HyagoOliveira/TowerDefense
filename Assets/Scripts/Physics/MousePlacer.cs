@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TowerDefense.Gameplay;
 using UnityPhysics = UnityEngine.Physics;
 
 namespace TowerDefense.Physics
@@ -10,23 +11,21 @@ namespace TowerDefense.Physics
         [Header("Physics Detection")]
         [SerializeField] private LayerMask collision;
         [SerializeField, Min(0f)] private float maxDistance = 100F;
+        [SerializeField] private Vector3 towerOffset = Vector3.up * 0.5F;
 
         [Header("Input")]
-        [SerializeField] private string placePassagerButtontName = "Place Defender";
-
-        [Header("Passenger")]
-        [SerializeField] private Vector3 passengerOffset = Vector3.up * 0.5F;
+        [SerializeField] private string placeButtontName = "Place Defender";
 
         [Header("Feedbacks")]
         [SerializeField] private Material failFeedback;
         [SerializeField] private Material successFeedback;
 
-        public event Action<IPassengerable> OnPlacePassenger;
+        public event Action<DefenderTower> OnPlaceTower;
 
         public bool HasValidPosition { get; private set; }
 
         private Camera mainCamera;
-        private IPassengerable passenger;
+        private DefenderTower tower;
 
         private void Awake() => mainCamera = Camera.main;
         private void Start() => enabled = false; // For optimization
@@ -35,18 +34,18 @@ namespace TowerDefense.Physics
         {
             UpdatePositionUsingMouse();
 
-            if (passenger != null)
+            if (tower != null)
             {
                 UpdatePassengerMaterialFeedback();
                 UpdatePlaceInput();
             }
         }
 
-        public void SetPassenger(IPassengerable passenger)
+        public void SetPassenger(DefenderTower tower)
         {
-            this.passenger = passenger;
-            this.passenger.transform.SetParent(transform);
-            this.passenger.transform.localPosition = passengerOffset;
+            this.tower = tower;
+            this.tower.transform.SetParent(transform);
+            this.tower.transform.localPosition = towerOffset;
 
             enabled = true; // For optimization
         }
@@ -56,7 +55,7 @@ namespace TowerDefense.Physics
             var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             var hasHit = UnityPhysics.Raycast(cameraRay, out RaycastHit hit, maxDistance, collision);
 
-            HasValidPosition = hasHit && CanPlacePassenger();
+            HasValidPosition = hasHit && CanPlaceTower();
 
             if (!hasHit) return;
 
@@ -65,31 +64,31 @@ namespace TowerDefense.Physics
 
         private void UpdatePlaceInput()
         {
-            var hasInput = Input.GetButtonDown(placePassagerButtontName);
-            if (hasInput && HasValidPosition) PlacePassager();
+            var hasInput = Input.GetButtonDown(placeButtontName);
+            if (hasInput && HasValidPosition) PlaceTower();
         }
 
         private void UpdatePassengerMaterialFeedback()
         {
             var material = HasValidPosition ? successFeedback : failFeedback;
-            passenger.MaterialChanger.SetMaterials(material);
+            tower.MaterialChanger.SetMaterials(material);
         }
 
-        private void PlacePassager()
+        private void PlaceTower()
         {
-            passenger.MaterialChanger.ResetMaterials();
+            tower.MaterialChanger.ResetMaterials();
 
-            passenger.transform.SetParent(null);
-            passenger.transform.position -= passengerOffset;
+            tower.transform.SetParent(null);
+            tower.transform.position -= towerOffset;
 
             enabled = false; // For optimization
 
-            OnPlacePassenger?.Invoke(passenger);
-            passenger = null;
+            OnPlaceTower?.Invoke(tower);
+            tower = null;
 
             transform.position = Vector3.zero;
         }
 
-        private bool CanPlacePassenger() => passenger.CanPlace();
+        private bool CanPlaceTower() => tower.CanPlace();
     }
 }
