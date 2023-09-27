@@ -21,6 +21,7 @@ namespace TowerDefense.UI
         {
             this.defenderIndex = defenderIndex;
             transform.SetParent(parent);
+            transform.localScale = Vector3.one;
         }
 
         private void HandleButtonClicked() => settings.SpawnDefender(defenderIndex);
