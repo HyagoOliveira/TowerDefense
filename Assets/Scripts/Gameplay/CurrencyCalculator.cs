@@ -12,7 +12,7 @@ namespace TowerDefense.Gameplay
         }
 
         public bool CanPurchase(int price) => currency.Value >= price;
-        public bool CanPurchase(DefenderTower tower) => CanPurchase(tower.Price);
+        public bool CanPurchase(DefenderTower tower) => CanPurchase(tower.PurchasePrice);
 
         public void TryPurchase(DefenderTower tower)
         {
@@ -21,7 +21,7 @@ namespace TowerDefense.Gameplay
 
         public void Purchase(DefenderTower tower)
         {
-            var value = currency.Value - tower.Price;
+            var value = currency.Value - tower.PurchasePrice;
             currency.Value = Mathf.Max(0, value);
 
             // Add Analytics here if a valid project

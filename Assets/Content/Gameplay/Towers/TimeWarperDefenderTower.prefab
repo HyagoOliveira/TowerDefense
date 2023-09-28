@@ -129,6 +129,10 @@ PrefabInstance:
       value: Time Warper
       objectReference: {fileID: 0}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: purchasePrice
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: <Price>k__BackingField
       value: 20
       objectReference: {fileID: 0}

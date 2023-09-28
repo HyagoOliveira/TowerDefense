@@ -31,7 +31,7 @@ namespace TowerDefense.UI
             transform.localScale = Vector3.one;
 
             towerName.text = tower.DysplayName;
-            towerPrice.text = tower.Price.ToString("D2");
+            towerPrice.text = tower.PurchasePrice.ToString("D2");
         }
 
         private void HandleButtonClicked() => settings.TrySpawnTower(towerIndex);

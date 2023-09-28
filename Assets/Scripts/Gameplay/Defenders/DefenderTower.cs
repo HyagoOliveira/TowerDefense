@@ -13,12 +13,15 @@ namespace TowerDefense.Gameplay
     public sealed class DefenderTower : MonoBehaviour
     {
         [SerializeField] private string displayname = "Tower";
+        [SerializeField, Min(0)] private int purchasePrice = 10;
+
+        [Space]
         [SerializeField] private TowerDetector detector;
         [SerializeField] private BoxCollider boxCollider;
         [SerializeField] private MaterialReplacer material;
 
-        public int Price => 10;
         public string DysplayName => displayname;
+        public int PurchasePrice => purchasePrice;
 
         public TowerDetector Detector => detector;
         public MaterialReplacer Material => material;

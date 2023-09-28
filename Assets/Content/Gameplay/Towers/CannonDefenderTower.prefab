@@ -251,6 +251,10 @@ PrefabInstance:
       value: Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: purchasePrice
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: <Price>k__BackingField
       value: 30
       objectReference: {fileID: 0}
