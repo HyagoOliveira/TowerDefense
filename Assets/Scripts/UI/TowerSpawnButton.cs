@@ -19,8 +19,18 @@ namespace TowerDefense.UI
         private int towerIndex;
 
         private void Reset() => button = GetComponent<Button>();
-        private void OnEnable() => button.onClick.AddListener(HandleButtonClicked);
-        private void OnDisable() => button.onClick.RemoveListener(HandleButtonClicked);
+
+        private void OnEnable()
+        {
+            button.onClick.AddListener(HandleButtonClicked);
+            settings.Currency.OnChanged += HandleCurrencyChanged;
+        }
+
+        private void OnDisable()
+        {
+            button.onClick.RemoveListener(HandleButtonClicked);
+            settings.Currency.OnChanged -= HandleCurrencyChanged;
+        }
 
         internal void Initialize(Transform parent, int towerIndex)
         {
@@ -35,5 +45,12 @@ namespace TowerDefense.UI
         }
 
         private void HandleButtonClicked() => settings.TrySpawnTower(towerIndex);
+
+        private void HandleCurrencyChanged(int _)
+        {
+            var tower = settings.GetTower(towerIndex);
+            var isAbleToPurchaseTower = settings.Calculator.CanPurchase(tower);
+            button.interactable = isAbleToPurchaseTower;
+        }
     }
 }
