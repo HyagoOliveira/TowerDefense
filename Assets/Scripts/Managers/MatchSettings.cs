@@ -8,7 +8,7 @@ namespace TowerDefense.Managers
     [CreateAssetMenu(fileName = "MatchSettings", menuName = "Tower Defense/Match Settings", order = 110)]
     public sealed class MatchSettings : ScriptableObject
     {
-        [SerializeField] private int initialHealth = 100;
+        [SerializeField] private int initialHealth = 20;
         [SerializeField] private int initialCurrency = 500;
         [SerializeField] private DefenderTower[] towers = new DefenderTower[0];
         [SerializeField] private EnemyWave[] enemyWaves = new EnemyWave[0];

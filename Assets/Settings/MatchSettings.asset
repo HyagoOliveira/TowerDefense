@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fccb0496cee51f4a849bffe502484a7, type: 3}
   m_Name: MatchSettings
   m_EditorClassIdentifier: 
-  initialHealth: 100
+  initialHealth: 20
   initialCurrency: 500
   towers:
   - {fileID: 4788132033996679829, guid: 39c3b6aa868bad3408dd35fe8180b8b4, type: 3}
