@@ -363,6 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7473290583775817545}
+  - component: {fileID: 4837486052753914072}
   m_Layer: 0
   m_Name: Ballista
   m_TagString: Untagged
@@ -387,6 +388,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4837486052753914072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941649551034286936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0536d9d464334191491631168a377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  reloadTime: 1
+  bulletPrefab: {fileID: 2366789565526910067, guid: 7015225dc8db37949bc4b1b5824ea179, type: 3}
+  bulletSpawnPoint: {fileID: 4127310600553098965}
+  bulletSpeed: 20
 --- !u!1 &8316708916236818820
 GameObject:
   m_ObjectHideFlags: 0
