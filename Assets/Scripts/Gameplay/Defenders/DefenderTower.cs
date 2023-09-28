@@ -5,34 +5,35 @@ using TowerDefense.VisualEffects;
 namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(NavMeshObstacle))]
     [RequireComponent(typeof(MaterialReplacer))]
     public sealed class DefenderTower : MonoBehaviour
     {
-        [SerializeField] private NavMeshObstacle obstacle;
+        [SerializeField] private BoxCollider boxCollider;
         [SerializeField] private MaterialReplacer material;
 
-        public int Price => 0;
+        public int Price => 10;
         public string Name => gameObject.name;
         public MaterialReplacer Material => material;
 
         private void Reset()
         {
+            boxCollider = GetComponent<BoxCollider>();
             material = GetComponent<MaterialReplacer>();
-            obstacle = GetComponentInChildren<NavMeshObstacle>();
         }
+
+        public void EnableAttack() { }
+        public void DisableAttack() { }
 
         public bool CanPlace()
         {
-            var distance = obstacle.height;
-            var position = transform.position + Vector3.up * distance;
-            var hasCollision = UnityEngine.Physics.SphereCast(
-                position,
-                obstacle.radius,
-                direction: Vector3.down,
-                out RaycastHit _,
-                distance
-            );
+            var bounds = boxCollider.bounds;
+
+            // Avoids collision with itself
+            boxCollider.enabled = false;
+            var hasCollision = UnityEngine.Physics.CheckBox(bounds.center, bounds.extents);
+            boxCollider.enabled = true;
 
             return !hasCollision;
         }

@@ -17,10 +17,10 @@ namespace TowerDefense.Physics
         [SerializeField] private string placeButtontName = "Place Defender";
 
         [Header("Feedbacks")]
-        [SerializeField] private Material failFeedback;
-        [SerializeField] private Material successFeedback;
+        [SerializeField] private Material placeable;
+        [SerializeField] private Material notPlaceable;
 
-        public event Action<DefenderTower> OnPlaceTower;
+        public event Action<DefenderTower> OnTowerPlaced;
 
         public bool HasValidPosition { get; private set; }
 
@@ -32,12 +32,8 @@ namespace TowerDefense.Physics
         private void Update()
         {
             UpdatePositionUsingMouse();
-
-            /*if (tower != null)
-            {
-                UpdatePassengerMaterialFeedback();
-                UpdatePlaceInput();
-            }*/
+            UpdateTowerMaterial();
+            UpdateInput();
         }
 
         public void SetTower(DefenderTower tower)
@@ -45,8 +41,9 @@ namespace TowerDefense.Physics
             this.tower = tower;
             this.tower.transform.SetParent(transform);
             this.tower.transform.localPosition = towerOffset;
+            this.tower.DisableAttack();
 
-            gameObject.SetActive(true);
+            Enable();
         }
 
         private void UpdatePositionUsingMouse()
@@ -54,37 +51,43 @@ namespace TowerDefense.Physics
             var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             var hasHit = UnityPhysics.Raycast(cameraRay, out RaycastHit hit, maxDistance, collision);
 
-            HasValidPosition = hasHit && CanPlaceTower();
+            if (hasHit) transform.position = hit.point;
 
-            if (!hasHit) return;
-
-            transform.position = hit.point;
+            HasValidPosition = hasHit && HasValidUpNormal(hit.normal) && tower.CanPlace();
         }
 
-        private void UpdatePlaceInput()
+        private void UpdateInput()
         {
             var hasInput = Input.GetButtonDown(placeButtontName);
             if (hasInput && HasValidPosition) PlaceTower();
         }
 
-        private void UpdatePassengerMaterialFeedback()
+        private void UpdateTowerMaterial()
         {
-            var material = HasValidPosition ? successFeedback : failFeedback;
+            var material = HasValidPosition ? placeable : notPlaceable;
             tower.Material.SetMaterials(material);
         }
 
         private void PlaceTower()
         {
+            tower.EnableAttack();
             tower.Material.ResetMaterials();
-
             tower.transform.SetParent(null);
             tower.transform.position -= towerOffset;
-            transform.position = Vector3.zero;
 
-            OnPlaceTower?.Invoke(tower);
-            tower = null;
+            OnTowerPlaced?.Invoke(tower);
+            Disable();
         }
 
-        private bool CanPlaceTower() => tower.CanPlace();
+        private void Enable() => gameObject.SetActive(true);
+
+        private void Disable()
+        {
+            tower = null;
+            transform.position = Vector3.zero;
+            gameObject.SetActive(false);
+        }
+
+        private static bool HasValidUpNormal(Vector3 normal) => Vector3.Dot(normal, Vector3.up) > 0.99f;
     }
 }
