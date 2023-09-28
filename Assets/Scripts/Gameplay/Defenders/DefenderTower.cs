@@ -29,9 +29,6 @@ namespace TowerDefense.Gameplay
             material = GetComponent<MaterialReplacer>();
         }
 
-        public void EnableAttack() { }
-        public void DisableAttack() { }
-
         public bool CanPlace()
         {
             var bounds = boxCollider.bounds;

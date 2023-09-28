@@ -39,9 +39,9 @@ namespace TowerDefense.Physics
         public void SetTower(DefenderTower tower)
         {
             this.tower = tower;
+            this.tower.Detector.enabled = false;
             this.tower.transform.SetParent(transform);
             this.tower.transform.localPosition = towerOffset;
-            this.tower.DisableAttack();
 
             Enable();
         }
@@ -70,7 +70,7 @@ namespace TowerDefense.Physics
 
         private void PlaceTower()
         {
-            tower.EnableAttack();
+            tower.Detector.enabled = true;
             tower.Material.ResetMaterials();
             tower.transform.SetParent(null);
             tower.transform.position -= towerOffset;
