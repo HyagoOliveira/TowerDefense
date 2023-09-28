@@ -14,6 +14,8 @@ namespace TowerDefense.Managers
         [SerializeField] private EnemyWave[] enemyWaves = new EnemyWave[0];
 
         public event Action OnStarted;
+        public event Action OnAnyEnemyWaveStarted;
+        public event Action OnAnyEnemyWaveFinished;
         public event Action<EnemyWave> OnEnemyWaveSpawned;
 
         public int Towers => towers.Length;
@@ -30,8 +32,28 @@ namespace TowerDefense.Managers
         private int currentEnemyWaveIndex;
 
         internal void Initialize(TowerPlacer placer) => Placer = placer;
-        internal void Enable() => Placer.OnTowerPlaced += HandleTowerPlaced;
-        internal void Disable() => Placer.OnTowerPlaced -= HandleTowerPlaced;
+
+        internal void Enable()
+        {
+            Placer.OnTowerPlaced += HandleTowerPlaced;
+
+            foreach (var wave in enemyWaves)
+            {
+                wave.OnStarted += HandleEnemyWaveStarted;
+                wave.OnFinished += HandleEnemyWaveFinished;
+            }
+        }
+
+        internal void Disable()
+        {
+            Placer.OnTowerPlaced -= HandleTowerPlaced;
+
+            foreach (var wave in enemyWaves)
+            {
+                wave.OnStarted -= HandleEnemyWaveStarted;
+                wave.OnFinished -= HandleEnemyWaveFinished;
+            }
+        }
 
         internal void Start()
         {
@@ -66,6 +88,9 @@ namespace TowerDefense.Managers
         public EnemyWave GetEnemyWave(int index) => enemyWaves[index];
 
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
+
+        private void HandleEnemyWaveFinished() => OnAnyEnemyWaveStarted?.Invoke();
+        private void HandleEnemyWaveStarted() => OnAnyEnemyWaveFinished?.Invoke();
 
         private void ResetValues()
         {
