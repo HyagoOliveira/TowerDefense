@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shocker_01
       objectReference: {fileID: 0}
+    - target: {fileID: 5429927092091058394, guid: 7df5953cc2fd61540bc5a19f83f421fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8901803217984183336, guid: 7df5953cc2fd61540bc5a19f83f421fd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -157,6 +161,10 @@ PrefabInstance:
     - target: {fileID: 5429927092091058394, guid: 7df5953cc2fd61540bc5a19f83f421fd, type: 3}
       propertyPath: m_Name
       value: Shocker_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429927092091058394, guid: 7df5953cc2fd61540bc5a19f83f421fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8901803217984183336, guid: 7df5953cc2fd61540bc5a19f83f421fd, type: 3}
       propertyPath: m_RootOrder
