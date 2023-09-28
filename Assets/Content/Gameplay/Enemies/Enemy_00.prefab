@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 5482761492382447988, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: be2dfad5375e1184c8e03ef305f933f1, type: 2}
+      objectReference: {fileID: 2100000, guid: 2447674916f40b9488a96be7eda8d80f, type: 2}
     - target: {fileID: 6997603979538203016, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
       propertyPath: m_Name
       value: Enemy_00
@@ -74,6 +74,14 @@ PrefabInstance:
     - target: {fileID: 7439914590864325548, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851946856560435060, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851946856560435060, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}

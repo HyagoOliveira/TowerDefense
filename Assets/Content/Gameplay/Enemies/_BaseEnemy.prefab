@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6997603979538203019}
-  - component: {fileID: 6997603979538203018}
   - component: {fileID: 2554740276314351608}
+  - component: {fileID: 6997603979538203018}
   - component: {fileID: 3357798899795107187}
   - component: {fileID: 93703554747051965}
   m_Layer: 8
@@ -36,6 +36,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2554740276314351608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997603979538203016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &6997603979538203018
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -58,19 +71,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &2554740276314351608
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6997603979538203016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3357798899795107187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3647340736691289409, guid: 6c40efc17e1654f489d2586155e79326, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 462a82fc3e582cb4e89f01703c6bba80, type: 2}
     - target: {fileID: 3647340736691289415, guid: 6c40efc17e1654f489d2586155e79326, type: 3}
       propertyPath: m_Layer
       value: 8
