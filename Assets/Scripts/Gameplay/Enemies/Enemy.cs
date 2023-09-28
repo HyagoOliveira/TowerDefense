@@ -4,6 +4,8 @@ using UnityEngine.AI;
 namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(Damageable))]
+    [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(NavMeshAgent))]
     public sealed class Enemy : MonoBehaviour
     {
