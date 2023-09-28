@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3247631396170801756, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: m_Name
-      value: TimeWarperDefenderTower
+      value: ShockWaveTower
       objectReference: {fileID: 0}
     - target: {fileID: 3953483410493517027, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: m_RootOrder
@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: displayname
-      value: Time Warper
+      value: Shock Wave
       objectReference: {fileID: 0}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: purchasePrice
