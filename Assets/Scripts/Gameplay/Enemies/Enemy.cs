@@ -10,12 +10,15 @@ namespace TowerDefense.Gameplay
     public sealed class Enemy : MonoBehaviour
     {
         [SerializeField] private NavMeshAgent agent;
+        [SerializeField, Min(0)] private int damage = 10;
 
         public float Speed
         {
             get => agent.speed;
             set => agent.speed = value;
         }
+
+        public int Damage => damage;
 
         private void Reset() => agent = GetComponent<NavMeshAgent>();
 
