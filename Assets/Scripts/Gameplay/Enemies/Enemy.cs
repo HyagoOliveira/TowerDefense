@@ -9,6 +9,12 @@ namespace TowerDefense.Gameplay
     {
         [SerializeField] private NavMeshAgent agent;
 
+        public float Speed
+        {
+            get => agent.speed;
+            set => agent.speed = value;
+        }
+
         private void Reset() => agent = GetComponent<NavMeshAgent>();
     }
 }
