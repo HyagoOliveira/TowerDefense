@@ -4,10 +4,10 @@ using UnityEngine;
 namespace TowerDefense.Gameplay
 {
     [DisallowMultipleComponent]
-    public class Weapon : MonoBehaviour
+    public sealed class Weapon : MonoBehaviour
     {
-        [SerializeField, Min(0)] protected int damage;
-        [SerializeField, Min(0f)] protected float reloadTime;
+        [SerializeField, Min(0)] private int damage;
+        [SerializeField, Min(0f)] private float reloadTime;
 
         [Space]
         [SerializeField] private Bullet bulletPrefab;
@@ -35,7 +35,7 @@ namespace TowerDefense.Gameplay
             }
         }
 
-        protected virtual void Fire()
+        private void Fire()
         {
             //TODO improve using a PoolSystem
             var bullet = Instantiate(
