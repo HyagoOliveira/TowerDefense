@@ -14,6 +14,7 @@ namespace TowerDefense.Managers
         [SerializeField] private EnemyWave[] enemyWaves = new EnemyWave[0];
 
         public event Action OnStarted;
+        public event Action OnGameOver;
         public event Action OnAnyEnemyWaveStarted;
         public event Action OnAnyEnemyWaveFinished;
         public event Action<EnemyWave> OnEnemyWaveSpawned;
@@ -117,9 +118,6 @@ namespace TowerDefense.Managers
             Calculator = new CurrencyCalculator(Currency);
         }
 
-        private void GameOver()
-        {
-
-        }
+        private void GameOver() => OnGameOver?.Invoke();
     }
 }
