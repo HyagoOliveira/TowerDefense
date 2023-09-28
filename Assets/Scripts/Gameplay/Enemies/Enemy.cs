@@ -19,9 +19,6 @@ namespace TowerDefense.Gameplay
 
         private void Reset() => agent = GetComponent<NavMeshAgent>();
 
-        public void SetDestination(Vector3 destination)
-        {
-
-        }
+        public void SetDestination(Vector3 destination) => agent.SetDestination(destination);
     }
 }
