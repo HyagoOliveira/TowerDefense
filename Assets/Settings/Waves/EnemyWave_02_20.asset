@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyWave_02_20
   m_EditorClassIdentifier: 
   prefab: {fileID: 4144435045535498020, guid: f0441b98482e3e44395db349bd0af174, type: 3}
-  quantity: 10
-  timeBetweenSpawns: 1
+  quantity: 20
+  timeBetweenSpawns: 0.5

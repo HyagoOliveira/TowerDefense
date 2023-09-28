@@ -24,7 +24,7 @@ namespace TowerDefense.UI
 
         private void Instantiate()
         {
-            buttons = new TowerSpawnButton[settings.TowerSize];
+            buttons = new TowerSpawnButton[settings.Towers];
 
             for (int i = 0; i < buttons.Length; i++)
             {

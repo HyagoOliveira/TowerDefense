@@ -11,10 +11,12 @@ namespace TowerDefense.Managers
         [SerializeField] private int initialHealth = 100;
         [SerializeField] private int initialCurrency = 500;
         [SerializeField] private DefenderTower[] towers = new DefenderTower[0];
+        [SerializeField] private EnemyWave[] enemyWaves = new EnemyWave[0];
 
         public event Action OnStarted;
 
-        public int TowerSize => towers.Length;
+        public int Towers => towers.Length;
+        public int EnemyWaves => enemyWaves.Length;
 
         public TowerPlacer Placer { get; private set; }
         public CurrencyCalculator Calculator { get; private set; }
@@ -44,6 +46,7 @@ namespace TowerDefense.Managers
         }
 
         public DefenderTower GetTower(int index) => towers[index];
+        public EnemyWave GetEnemyWave(int index) => enemyWaves[index];
 
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
 

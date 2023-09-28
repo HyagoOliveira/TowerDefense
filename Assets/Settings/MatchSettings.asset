@@ -18,3 +18,11 @@ MonoBehaviour:
   - {fileID: 4788132033996679829, guid: 39c3b6aa868bad3408dd35fe8180b8b4, type: 3}
   - {fileID: 8787251071405704110, guid: 3c9e53fc09a173d439b332c82f6ace83, type: 3}
   - {fileID: 8750231553219050090, guid: 7e0c9d262e4bcfe4e8649f8e7724f59a, type: 3}
+  enemyWaves:
+  - {fileID: 11400000, guid: 80f8f9ae969522b4097d7bad3446dfdc, type: 2}
+  - {fileID: 11400000, guid: b851a9b64ea5e8b4ea81c0d84baa5e0d, type: 2}
+  - {fileID: 11400000, guid: 8515d4817f8397743a5886bff34c4e64, type: 2}
+  - {fileID: 11400000, guid: a2204080a800fdb4c95e92ecf95f6d0e, type: 2}
+  - {fileID: 11400000, guid: 440739c6db5f50446b04c2e1d0cace99, type: 2}
+  - {fileID: 11400000, guid: 9761885e3dade3243b4cc2acbcd0c703, type: 2}
+  - {fileID: 11400000, guid: 1cc1ce8e9de899043abee4d168bb68a5, type: 2}
