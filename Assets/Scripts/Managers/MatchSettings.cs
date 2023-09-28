@@ -89,8 +89,8 @@ namespace TowerDefense.Managers
 
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
 
-        private void HandleEnemyWaveFinished() => OnAnyEnemyWaveStarted?.Invoke();
-        private void HandleEnemyWaveStarted() => OnAnyEnemyWaveFinished?.Invoke();
+        private void HandleEnemyWaveStarted() => OnAnyEnemyWaveStarted?.Invoke();
+        private void HandleEnemyWaveFinished() => OnAnyEnemyWaveFinished?.Invoke();
 
         private void ResetValues()
         {
