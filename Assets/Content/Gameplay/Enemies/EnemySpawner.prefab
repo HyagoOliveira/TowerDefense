@@ -105,6 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2134cd74bd32e2042b9971f1c0ee10c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6997603979538203016, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
+  settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
   origin: {fileID: 7135324073460335703}
   destination: {fileID: 7135324073052796534}
