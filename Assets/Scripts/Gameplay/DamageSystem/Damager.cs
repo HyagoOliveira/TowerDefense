@@ -12,7 +12,7 @@ namespace TowerDefense.Gameplay
         public int Damage
         {
             get => damage;
-            set => damage = Mathf.Min(0, value);
+            set => damage = Mathf.Max(0, value);
         }
 
         private const int maxColliders = 10;
