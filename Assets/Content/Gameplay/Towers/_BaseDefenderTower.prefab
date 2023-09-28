@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2560491086778375033}
+  - component: {fileID: 3084531813015438961}
   - component: {fileID: 6356449607589754380}
   - component: {fileID: 5529186762830138820}
   - component: {fileID: 4911102712819903256}
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3084531813015438961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247631396170801756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 5, z: 3}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!208 &6356449607589754380
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -78,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d078434dc7e5074bb764816f24681f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 6356449607589754380}
+  boxCollider: {fileID: 3084531813015438961}
   material: {fileID: 5529186762830138820}
 --- !u!1001 &8075266887926511331
 PrefabInstance:
