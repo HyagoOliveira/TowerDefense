@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TowerDefense.Gameplay
@@ -9,6 +10,8 @@ namespace TowerDefense.Gameplay
     {
         [SerializeField] private int initialEnergy = 10;
         [SerializeField] private DamageableFeedback feedback;
+
+        public event Action OnEnergyEnded;
 
         public DynamicValue<int> Energy { get; private set; } = new DynamicValue<int>();
 
@@ -24,7 +27,11 @@ namespace TowerDefense.Gameplay
             feedback.Play();
 
             var noEnergy = Energy.Value <= 0;
-            if (noEnergy) Destroy(gameObject);
+            if (noEnergy)
+            {
+                OnEnergyEnded?.Invoke();
+                Destroy(gameObject);
+            }
         }
     }
 }
