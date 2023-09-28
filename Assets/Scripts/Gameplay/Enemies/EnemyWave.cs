@@ -12,6 +12,7 @@ namespace TowerDefense.Gameplay
         [SerializeField, Min(0f)] private float timeBetweenSpawns = 1f;
 
         public event Action OnSpawnStarted;
+        public event Action OnSpawnFinished;
 
         public int AdditionalQuantity { get; set; } = 0;
 
@@ -35,6 +36,8 @@ namespace TowerDefense.Gameplay
                 remainSpawns--;
 
             } while (remainSpawns > 0);
+
+            OnSpawnFinished?.Invoke();
         }
     }
 }
