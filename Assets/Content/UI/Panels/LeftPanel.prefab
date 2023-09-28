@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4628567660681187965, guid: ed791b499f0dda44f837c9e35a70a08d, type: 3}
       propertyPath: m_Name
-      value: NextEnemyWave
+      value: NextEnemyWaveButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed791b499f0dda44f837c9e35a70a08d, type: 3}
