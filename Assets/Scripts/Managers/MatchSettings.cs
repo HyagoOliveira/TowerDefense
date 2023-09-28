@@ -87,6 +87,20 @@ namespace TowerDefense.Managers
             OnEnemyWaveSpawned?.Invoke(wave);
         }
 
+        internal void AchieveGoal(Enemy enemy)
+        {
+            var newHealth = Health.Value - enemy.Damage;
+
+            if (newHealth <= 0)
+            {
+                newHealth = 0;
+                GameOver();
+            }
+
+            Health.Value = newHealth;
+            Destroy(enemy.gameObject);
+        }
+
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
 
         private void HandleEnemyWaveStarted() => OnAnyEnemyWaveStarted?.Invoke();
@@ -101,6 +115,11 @@ namespace TowerDefense.Managers
             currentEnemyWaveIndex = -1;
 
             Calculator = new CurrencyCalculator(Currency);
+        }
+
+        private void GameOver()
+        {
+
         }
     }
 }
