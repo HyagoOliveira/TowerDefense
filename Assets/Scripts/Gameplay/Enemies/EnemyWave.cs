@@ -10,16 +10,15 @@ namespace TowerDefense.Gameplay
         [SerializeField, Min(0)] private int quantity = 1;
         [SerializeField, Min(0f)] private float timeBetweenSpawns = 1f;
 
+        public int AdditionalQuantity { get; set; } = 0;
+
         public IEnumerator SpawnRoutine(
             Vector3 position,
             Vector3 destination,
-            Quaternion rotation,
-            int quantityMultiplier = 1
+            Quaternion rotation
         )
         {
-            quantity *= quantityMultiplier;
-
-            var remainSpawns = quantity;
+            var remainSpawns = quantity + AdditionalQuantity;
             var waitTime = new WaitForSeconds(timeBetweenSpawns);
 
             do
