@@ -43,8 +43,8 @@ namespace TowerDefense.Gameplay
                 bulletSpawnPoint.position,
                 rotation: Quaternion.identity
             );
-            var bulletDirection =
-                (tower.Detector.TargetPosition - bullet.transform.position).normalized;
+            var deltaPosition = tower.Detector.TargetPosition - bullet.transform.position;
+            var bulletDirection = deltaPosition.normalized;
 
             bullet.Fire(
                 bulletSpeed,

@@ -21,6 +21,7 @@ namespace TowerDefense.Gameplay
             this.speed = speed;
             this.direction = direction;
             damager.Damage = damage;
+            transform.rotation = Quaternion.LookRotation(direction);
         }
 
         private void UpdateMovement()
