@@ -25,6 +25,8 @@ namespace TowerDefense.Managers
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
 
         internal void Initialize(TowerPlacer placer) => Placer = placer;
+        internal void Enable() { }
+        internal void Disable() { }
 
         internal void Start()
         {

@@ -12,6 +12,8 @@ namespace TowerDefense.Managers
 
         private void Reset() => placer = GetComponentInChildren<TowerPlacer>(includeInactive: true);
         private void Awake() => settings.Initialize(placer);
+        private void OnEnable() => settings.Enable();
         private void Start() => settings.Start();
+        private void OnDisable() => settings.Disable();
     }
 }
