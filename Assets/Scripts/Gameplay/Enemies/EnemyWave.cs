@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace TowerDefense.Gameplay
 {
@@ -9,6 +10,8 @@ namespace TowerDefense.Gameplay
         [SerializeField] private Enemy prefab;
         [SerializeField, Min(0)] private int quantity = 1;
         [SerializeField, Min(0f)] private float timeBetweenSpawns = 1f;
+
+        public event Action OnSpawnStarted;
 
         public int AdditionalQuantity { get; set; } = 0;
 
@@ -20,6 +23,8 @@ namespace TowerDefense.Gameplay
         {
             var remainSpawns = quantity + AdditionalQuantity;
             var waitTime = new WaitForSeconds(timeBetweenSpawns);
+
+            OnSpawnStarted?.Invoke();
 
             do
             {
