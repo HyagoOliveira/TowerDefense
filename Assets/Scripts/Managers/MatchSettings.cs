@@ -44,6 +44,12 @@ namespace TowerDefense.Managers
             }
         }
 
+        internal void Start()
+        {
+            ResetValues();
+            OnStarted?.Invoke();
+        }
+
         internal void Disable()
         {
             Placer.OnTowerPlaced -= HandleTowerPlaced;
@@ -55,13 +61,10 @@ namespace TowerDefense.Managers
             }
         }
 
-        internal void Start()
-        {
-            ResetValues();
-            OnStarted?.Invoke();
-        }
+        public DefenderTower GetTower(int index) => towers[index];
+        public EnemyWave GetEnemyWave(int index) => enemyWaves[index];
 
-        public void TrySpawnTower(int index)
+        internal void TrySpawnTower(int index)
         {
             var tower = GetTower(index);
             if (!Calculator.CanPurchase(tower)) return;
@@ -70,7 +73,7 @@ namespace TowerDefense.Managers
             Placer.SetTower(instance);
         }
 
-        public void SpawnNextEnemyWave()
+        internal void SpawnNextEnemyWave()
         {
             currentEnemyWaveIndex++;
 
@@ -83,9 +86,6 @@ namespace TowerDefense.Managers
             var wave = GetEnemyWave(currentEnemyWaveIndex);
             OnEnemyWaveSpawned?.Invoke(wave);
         }
-
-        public DefenderTower GetTower(int index) => towers[index];
-        public EnemyWave GetEnemyWave(int index) => enemyWaves[index];
 
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
 
