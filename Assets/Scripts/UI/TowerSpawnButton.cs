@@ -30,7 +30,7 @@ namespace TowerDefense.UI
             transform.SetParent(parent);
             transform.localScale = Vector3.one;
 
-            towerName.text = tower.Name;
+            towerName.text = tower.DysplayName;
             towerPrice.text = tower.Price.ToString("D2");
         }
 

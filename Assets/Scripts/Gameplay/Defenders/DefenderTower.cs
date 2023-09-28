@@ -12,12 +12,13 @@ namespace TowerDefense.Gameplay
     [RequireComponent(typeof(MaterialReplacer))]
     public sealed class DefenderTower : MonoBehaviour
     {
+        [SerializeField] private string displayname = "Tower";
         [SerializeField] private TowerDetector detector;
         [SerializeField] private BoxCollider boxCollider;
         [SerializeField] private MaterialReplacer material;
 
         public int Price => 10;
-        public string Name => gameObject.name;
+        public string DysplayName => displayname;
 
         public TowerDetector Detector => detector;
         public MaterialReplacer Material => material;

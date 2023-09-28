@@ -55,9 +55,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallistaDefenderTower
       objectReference: {fileID: 0}
+    - target: {fileID: 3953483410493517027, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: price
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: displayname
+      value: Ballista
       objectReference: {fileID: 0}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: <Price>k__BackingField
