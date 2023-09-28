@@ -25,8 +25,8 @@ namespace TowerDefense.Managers
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
 
         internal void Initialize(TowerPlacer placer) => Placer = placer;
-        internal void Enable() { }
-        internal void Disable() { }
+        internal void Enable() => Placer.OnTowerPlaced += HandleTowerPlaced;
+        internal void Disable() => Placer.OnTowerPlaced -= HandleTowerPlaced;
 
         internal void Start()
         {
@@ -39,13 +39,13 @@ namespace TowerDefense.Managers
             var tower = GetTower(index);
             if (!Calculator.CanPurchase(tower)) return;
 
-            Calculator.Purchase(tower);
-
             var instance = Instantiate(tower);
             Placer.SetTower(instance);
         }
 
         public DefenderTower GetTower(int index) => towers[index];
+
+        private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
 
         private void ResetValues()
         {
