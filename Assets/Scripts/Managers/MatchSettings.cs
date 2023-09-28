@@ -102,6 +102,12 @@ namespace TowerDefense.Managers
             Destroy(enemy.gameObject);
         }
 
+        internal void Defeat(Enemy enemy)
+        {
+            Score.Value += enemy.Score;
+            Currency.Value += enemy.Currency;
+        }
+
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
 
         private void HandleEnemyWaveStarted() => OnAnyEnemyWaveStarted?.Invoke();

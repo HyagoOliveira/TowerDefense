@@ -140,6 +140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 6997603979538203018}
+  damageable: {fileID: 93703554747051965}
+  settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
+  score: 1
+  damage: 1
+  currency: 1
 --- !u!1001 &3420603106089709567
 PrefabInstance:
   m_ObjectHideFlags: 0
