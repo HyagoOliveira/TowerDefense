@@ -14,6 +14,7 @@ namespace TowerDefense.Managers
         [SerializeField] private EnemyWave[] enemyWaves = new EnemyWave[0];
 
         public event Action OnStarted;
+        public event Action<EnemyWave> OnEnemyWaveSpawned;
 
         public int Towers => towers.Length;
         public int EnemyWaves => enemyWaves.Length;
@@ -25,6 +26,8 @@ namespace TowerDefense.Managers
         public DynamicValue<int> Score { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Health { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
+
+        private int currentEnemyWaveIndex;
 
         internal void Initialize(TowerPlacer placer) => Placer = placer;
         internal void Enable() => Placer.OnTowerPlaced += HandleTowerPlaced;
@@ -45,6 +48,20 @@ namespace TowerDefense.Managers
             Placer.SetTower(instance);
         }
 
+        public void SpawnNextEnemyWave()
+        {
+            currentEnemyWaveIndex++;
+
+            if (currentEnemyWaveIndex >= EnemyWaves)
+            {
+                currentEnemyWaveIndex = EnemyWaves - 1;
+                GetEnemyWave(currentEnemyWaveIndex).AdditionalQuantity++;
+            }
+
+            var wave = GetEnemyWave(currentEnemyWaveIndex);
+            OnEnemyWaveSpawned?.Invoke(wave);
+        }
+
         public DefenderTower GetTower(int index) => towers[index];
         public EnemyWave GetEnemyWave(int index) => enemyWaves[index];
 
@@ -56,6 +73,7 @@ namespace TowerDefense.Managers
             Score.Value = 0;
             Health.Value = initialHealth;
             Currency.Value = initialCurrency;
+            currentEnemyWaveIndex = -1;
 
             Calculator = new CurrencyCalculator(Currency);
         }
