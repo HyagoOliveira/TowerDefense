@@ -14,7 +14,8 @@ namespace TowerDefense.Physics
         [SerializeField] private Vector3 towerOffset = Vector3.up * 0.5F;
 
         [Header("Input")]
-        [SerializeField] private string placeButtontName = "Place Defender";
+        [SerializeField] private string confirmButtontName = "Confirm Tower Placement";
+        [SerializeField] private string cancelButtontName = "Cancel Tower Placement";
 
         [Header("Feedbacks")]
         [SerializeField] private Material placeable;
@@ -58,8 +59,11 @@ namespace TowerDefense.Physics
 
         private void UpdateInput()
         {
-            var hasInput = Input.GetButtonDown(placeButtontName);
-            if (hasInput && HasValidPosition) PlaceTower();
+            if (Input.GetButtonDown(confirmButtontName))
+            {
+                if (HasValidPosition) PlaceTower();
+            }
+            else if (Input.GetButtonDown(cancelButtontName)) CancelTower();
         }
 
         private void UpdateTowerMaterial()
@@ -76,6 +80,12 @@ namespace TowerDefense.Physics
             tower.transform.position -= towerOffset;
 
             OnTowerPlaced?.Invoke(tower);
+            Disable();
+        }
+
+        private void CancelTower()
+        {
+            Destroy(tower.gameObject);
             Disable();
         }
 
