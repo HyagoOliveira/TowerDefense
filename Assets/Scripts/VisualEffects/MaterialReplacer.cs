@@ -7,6 +7,7 @@ namespace TowerDefense.VisualEffects
     {
         [SerializeField] private Renderer[] renderers;
 
+        private Material lasMaterial;
         private Material[] originalMaterials;
 
         private void Reset() => renderers = GetComponentsInChildren<Renderer>(includeInactive: true);
@@ -14,6 +15,9 @@ namespace TowerDefense.VisualEffects
 
         public void SetMaterials(Material material)
         {
+            if (lasMaterial == material) return;
+
+            lasMaterial = material;
             foreach (var renderer in renderers)
             {
                 renderer.material = material;
