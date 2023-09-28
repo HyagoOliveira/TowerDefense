@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using TowerDefense.Physics;
@@ -20,11 +21,15 @@ namespace TowerDefense.Gameplay
         [SerializeField] private BoxCollider boxCollider;
         [SerializeField] private MaterialReplacer material;
 
+        public static event Action<DefenderTower> OnClicked;
+
         public string DysplayName => displayname;
         public int PurchasePrice => purchasePrice;
 
         public TowerDetector Detector => detector;
         public MaterialReplacer Material => material;
+
+        private bool isPlaced;
 
         private void Reset()
         {
@@ -43,6 +48,19 @@ namespace TowerDefense.Gameplay
             boxCollider.enabled = true;
 
             return !hasCollision;
+        }
+
+        internal void Place()
+        {
+            isPlaced = true;
+            Detector.enabled = true;
+            Material.ResetMaterials();
+            transform.SetParent(null);
+        }
+
+        private void OnMouseDown()
+        {
+            if (isPlaced) OnClicked?.Invoke(this);
         }
     }
 }

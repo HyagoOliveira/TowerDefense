@@ -74,9 +74,7 @@ namespace TowerDefense.Physics
 
         private void PlaceTower()
         {
-            tower.Detector.enabled = true;
-            tower.Material.ResetMaterials();
-            tower.transform.SetParent(null);
+            tower.Place();
             tower.transform.position -= towerOffset;
 
             OnTowerPlaced?.Invoke(tower);
