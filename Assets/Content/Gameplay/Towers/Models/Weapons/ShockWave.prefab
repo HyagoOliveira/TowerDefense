@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2637551772554146796}
   m_Layer: 0
-  m_Name: Hourglass
+  m_Name: Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8901803217984183336}
   m_Layer: 0
-  m_Name: TimeWarper
+  m_Name: ShockWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
