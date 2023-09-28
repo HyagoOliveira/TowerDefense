@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1056969846149653588}
   - component: {fileID: 6140089691904508538}
   - component: {fileID: 2038949365191731125}
+  - component: {fileID: 1043174762255615732}
+  - component: {fileID: 3865678766680902200}
   m_Layer: 5
   m_Name: LeftPanel
   m_TagString: Untagged
@@ -78,6 +80,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1043174762255615732
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560507440386762424}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &3865678766680902200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560507440386762424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496552353f6f5c5489be8b0cedb98af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 1043174762255615732}
+  settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
 --- !u!1001 &431048964693567882
 PrefabInstance:
   m_ObjectHideFlags: 0
