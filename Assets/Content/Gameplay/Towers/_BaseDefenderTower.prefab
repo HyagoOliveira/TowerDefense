@@ -116,6 +116,7 @@ MonoBehaviour:
   baseUpgradePrice: 10
   detector: {fileID: 3812952556789830994}
   boxCollider: {fileID: 3084531813015438961}
+  obstacle: {fileID: 6356449607589754380}
   material: {fileID: 5529186762830138820}
   weapons: []
 --- !u!1 &8336822573257354321

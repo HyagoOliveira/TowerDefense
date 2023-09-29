@@ -20,6 +20,7 @@ namespace TowerDefense.Gameplay
         [Space]
         [SerializeField] private TowerDetector detector;
         [SerializeField] private BoxCollider boxCollider;
+        [SerializeField] private NavMeshObstacle obstacle;
         [SerializeField] private MaterialReplacer material;
 
         [Space]
@@ -43,6 +44,7 @@ namespace TowerDefense.Gameplay
         {
             detector = GetComponent<TowerDetector>();
             boxCollider = GetComponent<BoxCollider>();
+            obstacle = GetComponent<NavMeshObstacle>();
             material = GetComponent<MaterialReplacer>();
         }
 
@@ -77,6 +79,7 @@ namespace TowerDefense.Gameplay
             Detector.enabled = true;
             Material.ResetMaterials();
             transform.SetParent(null);
+            obstacle.carveOnlyStationary = true;
         }
     }
 }
