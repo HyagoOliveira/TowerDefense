@@ -21,7 +21,6 @@ namespace TowerDefense.Managers
 
         public int Towers => towers.Length;
         public int EnemyWaves => enemyWaves.Length;
-
         public bool IsGameOver { get; private set; }
 
         public TowerPlacer Placer { get; private set; }
@@ -69,6 +68,8 @@ namespace TowerDefense.Managers
 
         internal void TrySpawnTower(int index)
         {
+            if (IsGameOver) return;
+
             var tower = GetTower(index);
             if (!Calculator.CanPurchase(tower)) return;
 
@@ -78,17 +79,19 @@ namespace TowerDefense.Managers
 
         internal void TryUpgrade(DefenderTower tower)
         {
-            if (!CanUpgrade(tower)) return;
+            if (IsGameOver || !CanUpgrade(tower)) return;
 
             Currency.Value -= tower.UpgradePrice;
             tower.Upgrade();
         }
 
         internal bool CanUpgrade(DefenderTower tower) =>
-            tower.CanUpgrade() && Calculator.CanUpgrade(tower);
+            !IsGameOver && tower.CanUpgrade() && Calculator.CanUpgrade(tower);
 
         internal void SpawnNextEnemyWave()
         {
+            if (IsGameOver) return;
+
             currentEnemyWaveIndex++;
 
             if (currentEnemyWaveIndex >= EnemyWaves)
@@ -103,6 +106,8 @@ namespace TowerDefense.Managers
 
         internal void AchieveGoal(Enemy enemy)
         {
+            if (IsGameOver) return;
+
             var newHealth = Health.Value - enemy.Damage;
 
             if (!IsGameOver && newHealth <= 0)
@@ -117,12 +122,13 @@ namespace TowerDefense.Managers
 
         internal void Defeat(Enemy enemy)
         {
+            if (IsGameOver) return;
+
             Score.Value += enemy.Score;
             Currency.Value += enemy.Currency;
         }
 
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
-
         private void HandleEnemyWaveStarted() => OnAnyEnemyWaveStarted?.Invoke();
         private void HandleEnemyWaveFinished() => OnAnyEnemyWaveFinished?.Invoke();
 
