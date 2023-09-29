@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3594405299549792758, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4313886336244581445, guid: 45f83417ad4ba63429240471afed6003, type: 3}
       propertyPath: m_fontSize
       value: 71.6
@@ -14,6 +18,10 @@ PrefabInstance:
     - target: {fileID: 4386086827352653565, guid: 45f83417ad4ba63429240471afed6003, type: 3}
       propertyPath: m_Name
       value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766898080633139744, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7467360243204982698, guid: 45f83417ad4ba63429240471afed6003, type: 3}
       propertyPath: m_text
@@ -125,6 +133,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &432923893032136445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6279171665513002410, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+  m_PrefabInstance: {fileID: 5847383847178345303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6326442218191778472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 498242652181293567, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+  m_PrefabInstance: {fileID: 5847383847178345303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &596564442934937916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279804711ca6bdf43a8d2bbddd0dc7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMesh: {fileID: 3929232564358192381}
   settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
+  currentValue: {fileID: 3929232564358192381}
+  increasedValue: {fileID: 432923893032136445}
+  decreasedValue: {fileID: 6326442218191778472}
   spriteName: Health
   format: D2
