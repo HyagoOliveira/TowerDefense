@@ -48,6 +48,7 @@ MonoBehaviour:
     m_Bits: 64
   maxDistance: 100
   towerOffset: {x: 0, y: 0.5, z: 0}
-  placeButtontName: Place Defender
+  confirmButtontName: Confirm Tower Placement
+  cancelButtontName: Cancel Tower Placement
   placeable: {fileID: 2100000, guid: b49b67474fdaaf04cbae8a7db74b57f7, type: 2}
   notPlaceable: {fileID: 2100000, guid: 2ab9393efe8ee574c8a35dd38dc9531c, type: 2}
