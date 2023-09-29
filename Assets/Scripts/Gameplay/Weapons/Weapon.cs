@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 namespace TowerDefense.Gameplay
 {
@@ -8,6 +8,7 @@ namespace TowerDefense.Gameplay
     {
         [SerializeField, Min(0)] private int damage;
         [SerializeField, Min(0f)] private float reloadTime;
+        [SerializeField, Min(0)] private AudioSource audioSource;
 
         [Space]
         [SerializeField] private Bullet bulletPrefab;
@@ -51,6 +52,7 @@ namespace TowerDefense.Gameplay
                 bulletDirection,
                 damage
             );
+            audioSource.Play();
         }
 
         private bool IsTargetFound() => tower.Detector.HasTarget;
