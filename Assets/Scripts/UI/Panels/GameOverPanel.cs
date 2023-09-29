@@ -7,13 +7,20 @@ namespace TowerDefense.UI
     [RequireComponent(typeof(Canvas))]
     public sealed class GameOverPanel : MonoBehaviour
     {
-        [SerializeField] private Canvas canvas;
         [SerializeField] private MatchSettings settings;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private ScorePanel scorePanel;
 
         private void Reset() => canvas = GetComponent<Canvas>();
         private void OnEnable() => settings.OnGameOver += HandleGameOver;
         private void OnDisable() => settings.OnGameOver -= HandleGameOver;
 
-        private void HandleGameOver() => canvas.enabled = true;
+        private void HandleGameOver() => Open();
+
+        private void Open()
+        {
+            scorePanel.Open();
+            canvas.enabled = true;
+        }
     }
 }
