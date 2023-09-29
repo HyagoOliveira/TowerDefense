@@ -751,7 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
   title: {fileID: 5749226978394459070}
-  upgradedPrice: {fileID: 7159638847707559937}
+  upgradePrice: {fileID: 7159638847707559937}
   currentWeaponsCounter: {fileID: 6350520885373798900}
   upgradedWeaponsCounter: {fileID: 3689457973921923580}
   closeButton: {fileID: 6470701347679229979}

@@ -30,13 +30,14 @@ namespace TowerDefense.Gameplay
         public string DysplayName => displayname;
         public int PurchasePrice => purchasePrice;
         public int UpgradePrice => PurchasePrice + baseUpgradePrice * CurrentWeaponsCount;
-        public int CurrentWeaponsCount { get; private set; } = 1;
+        public int CurrentWeaponsCount => weaponIndex + 1;
         public int UpgradedWeaponsCount => Mathf.Min(CurrentWeaponsCount + 1, weapons.Length);
 
         public TowerDetector Detector => detector;
         public MaterialReplacer Material => material;
 
         private bool isPlaced;
+        private int weaponIndex;
 
         private void Reset()
         {
@@ -62,12 +63,12 @@ namespace TowerDefense.Gameplay
             return !hasCollision;
         }
 
-        public bool CanUpgrade() => CurrentWeaponsCount < weapons.Length;
+        public bool CanUpgrade() => weaponIndex < weapons.Length;
 
         public void Upgrade()
         {
             if (!CanUpgrade()) return;
-            weapons[++CurrentWeaponsCount].gameObject.SetActive(true);
+            weapons[++weaponIndex].gameObject.SetActive(true);
         }
 
         internal void Place()

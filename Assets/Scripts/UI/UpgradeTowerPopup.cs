@@ -14,7 +14,7 @@ namespace TowerDefense.UI
 
         [Space]
         [SerializeField] private TMP_Text title;
-        [SerializeField] private TMP_Text upgradedPrice;
+        [SerializeField] private TMP_Text upgradePrice;
         [SerializeField] private TMP_Text currentWeaponsCounter;
         [SerializeField] private TMP_Text upgradedWeaponsCounter;
 
@@ -41,21 +41,29 @@ namespace TowerDefense.UI
         public void Open(DefenderTower tower)
         {
             this.tower = tower;
-            UpdateTowerAttributes();
+            ShowTowerAttributes();
         }
 
         public void Close() => OnClosed?.Invoke();
-        public void TryUpgrade() { }
 
         private void HandleCloseButtonClicked() => Close();
-        private void HandleUpgradeButtonClicked() => TryUpgrade();
 
-        private void UpdateTowerAttributes()
+        private void HandleUpgradeButtonClicked()
         {
-            title.text = tower.DysplayName;
-            upgradedPrice.text = tower.UpgradePrice.ToString("D2");
+            settings.TryUpgrade(tower);
+            ShowTowerAttributes();
+        }
 
-            upgradeButton.interactable = settings.Calculator.CanUpgrade(tower);
+        private void ShowTowerAttributes()
+        {
+            const string formatter = "D2";
+
+            title.text = tower.DysplayName;
+            upgradePrice.text = tower.UpgradePrice.ToString(formatter);
+            currentWeaponsCounter.text = tower.CurrentWeaponsCount.ToString(formatter);
+            upgradedWeaponsCounter.text = tower.UpgradedWeaponsCount.ToString(formatter);
+
+            upgradeButton.interactable = settings.CanUpgrade(tower);
         }
     }
 }

@@ -74,6 +74,17 @@ namespace TowerDefense.Managers
             Placer.SetTower(instance);
         }
 
+        internal void TryUpgrade(DefenderTower tower)
+        {
+            if (!CanUpgrade(tower)) return;
+
+            tower.Upgrade();
+            Currency.Value -= tower.UpgradePrice;
+        }
+
+        internal bool CanUpgrade(DefenderTower tower) =>
+            tower.CanUpgrade() && Calculator.CanUpgrade(tower);
+
         internal void SpawnNextEnemyWave()
         {
             currentEnemyWaveIndex++;
