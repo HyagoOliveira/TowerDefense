@@ -78,8 +78,8 @@ namespace TowerDefense.Managers
         {
             if (!CanUpgrade(tower)) return;
 
-            tower.Upgrade();
             Currency.Value -= tower.UpgradePrice;
+            tower.Upgrade();
         }
 
         internal bool CanUpgrade(DefenderTower tower) =>
