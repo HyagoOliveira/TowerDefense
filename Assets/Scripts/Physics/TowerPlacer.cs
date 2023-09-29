@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TowerDefense.Gameplay;
 using UnityPhysics = UnityEngine.Physics;
+using TowerDefense.UI;
 
 namespace TowerDefense.Physics
 {
@@ -21,17 +22,23 @@ namespace TowerDefense.Physics
         [SerializeField] private Material placeable;
         [SerializeField] private Material notPlaceable;
 
+        [Header("Sounds")]
+        [SerializeField] private AudioClip confirmClip;
+        [SerializeField] private AudioClip cancelClip;
+
         public event Action<DefenderTower> OnTowerPlaced;
 
         public bool HasValidPosition { get; private set; }
 
         private Camera mainCamera;
         private DefenderTower tower;
+        private GameCanvas gameCanvas;
         private EnemySpawner enemySpawner;
 
         private void Awake()
         {
             mainCamera = Camera.main;
+            gameCanvas = FindObjectOfType<GameCanvas>();
             enemySpawner = FindObjectOfType<EnemySpawner>();
         }
 
@@ -86,13 +93,16 @@ namespace TowerDefense.Physics
             tower.transform.position -= towerOffset;
 
             OnTowerPlaced?.Invoke(tower);
+
             Disable();
+            gameCanvas.AudioSource.PlayOneShot(confirmClip);
         }
 
         private void CancelTower()
         {
             Destroy(tower.gameObject);
             Disable();
+            gameCanvas.AudioSource.PlayOneShot(cancelClip);
         }
 
         private void Enable() => gameObject.SetActive(true);

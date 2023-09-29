@@ -52,3 +52,5 @@ MonoBehaviour:
   cancelButtontName: Cancel Tower Placement
   placeable: {fileID: 2100000, guid: b49b67474fdaaf04cbae8a7db74b57f7, type: 2}
   notPlaceable: {fileID: 2100000, guid: 2ab9393efe8ee574c8a35dd38dc9531c, type: 2}
+  confirmClip: {fileID: 8300000, guid: 31991e7c0ee2212468ffc881bd664ca9, type: 3}
+  cancelClip: {fileID: 8300000, guid: 8eee98e8a98105d419fd10b2f714ac26, type: 3}
