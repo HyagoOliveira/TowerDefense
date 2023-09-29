@@ -174,11 +174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  reloadTime: 0.8
+  reloadTime: 1.5
   audioSource: {fileID: 5439540929682626640}
   bulletPrefab: {fileID: 2366789565526910067, guid: 9761cd2ee82a18e48a956a3c916edd30, type: 3}
   bulletSpawnPoint: {fileID: 2637551772554146796}
-  bulletSpeed: 5
+  bulletSpeed: 12
 --- !u!1 &6783142697041186542
 GameObject:
   m_ObjectHideFlags: 0
