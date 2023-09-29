@@ -59,8 +59,8 @@ NavMeshObstacle:
   m_GameObject: {fileID: 3247631396170801756}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 1, y: 2.5, z: 1}
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 2.5, z: 1.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
@@ -111,9 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d078434dc7e5074bb764816f24681f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayname: Tower
+  purchasePrice: 10
+  baseUpgradePrice: 10
   detector: {fileID: 3812952556789830994}
   boxCollider: {fileID: 3084531813015438961}
   material: {fileID: 5529186762830138820}
+  weapons: []
 --- !u!1 &8336822573257354321
 GameObject:
   m_ObjectHideFlags: 0
