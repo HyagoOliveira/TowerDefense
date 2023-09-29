@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4bb169b81f33d9149b147522e295d3d4, type: 2}
     - target: {fileID: 5605742622662697556, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
       propertyPath: score
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5605742622662697556, guid: 041d6aa102fe7ef4a8b0dd2cbdeff8d4, type: 3}
       propertyPath: damage
