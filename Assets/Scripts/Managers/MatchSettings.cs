@@ -55,29 +55,26 @@ namespace TowerDefense.Managers
 
         internal void TryUpgrade(DefenderTower tower)
         {
-            if (IsGameOver || !CanUpgrade(tower)) return;
+            if (IsGameOver) return;
 
-            Currency.Value -= tower.UpgradePrice;
+            Calculator.TryUpgrade(tower);
             tower.Upgrade();
         }
 
-        internal bool CanUpgrade(DefenderTower tower) =>
-            !IsGameOver && tower.CanUpgrade() && Calculator.CanUpgrade(tower);
-
         internal void AchieveGoal(Enemy enemy)
         {
+            Destroy(enemy.gameObject);
             if (IsGameOver) return;
 
             var newHealth = Health.Value - enemy.Damage;
 
-            if (!IsGameOver && newHealth <= 0)
+            if (newHealth <= 0)
             {
                 newHealth = 0;
                 GameOver();
             }
 
             Health.Value = newHealth;
-            Destroy(enemy.gameObject);
         }
 
         internal void Defeat(Enemy enemy)
@@ -88,7 +85,7 @@ namespace TowerDefense.Managers
             Currency.Value += enemy.Currency;
         }
 
-        private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
+        private void HandleTowerPlaced(DefenderTower tower) => Calculator.TryPurchase(tower);
 
         private void ResetValues()
         {
@@ -98,7 +95,6 @@ namespace TowerDefense.Managers
             Currency.Value = initialCurrency;
 
             IsGameOver = false;
-
             Calculator = new CurrencyCalculator(Currency);
         }
 

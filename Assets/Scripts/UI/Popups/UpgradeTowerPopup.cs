@@ -82,7 +82,6 @@ namespace TowerDefense.UI
         }
 
         private void UpdateUpgradeInteractivity() =>
-            upgradeButton.interactable = settings.CanUpgrade(tower);
-
+            upgradeButton.interactable = settings.Calculator.CanUpgrade(tower);
     }
 }
