@@ -38,6 +38,11 @@ namespace TowerDefense.Gameplay
             material = GetComponent<MaterialReplacer>();
         }
 
+        private void OnMouseDown()
+        {
+            if (isPlaced) OnClicked?.Invoke(this);
+        }
+
         public bool CanPlace()
         {
             var bounds = boxCollider.bounds;
@@ -56,11 +61,6 @@ namespace TowerDefense.Gameplay
             Detector.enabled = true;
             Material.ResetMaterials();
             transform.SetParent(null);
-        }
-
-        private void OnMouseDown()
-        {
-            if (isPlaced) OnClicked?.Invoke(this);
         }
     }
 }
