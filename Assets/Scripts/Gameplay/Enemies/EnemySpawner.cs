@@ -52,6 +52,8 @@ namespace TowerDefense.Gameplay
             var direction = delta.normalized;
             var orientation = Quaternion.LookRotation(direction);
 
+            settings.Round.Value++;
+
             StopAllCoroutines();
             StartCoroutine(wave.SpawnRoutine(Origin, Destination, orientation));
         }
