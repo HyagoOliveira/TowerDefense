@@ -85,7 +85,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 50
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   audioSource: {fileID: 5439540929682626640}
   bulletPrefab: {fileID: 2366789565526910067, guid: 9761cd2ee82a18e48a956a3c916edd30, type: 3}
   bulletSpawnPoint: {fileID: 2637551772554146796}
-  bulletSpeed: 12
+  bulletSpeed: 20
 --- !u!1 &6783142697041186542
 GameObject:
   m_ObjectHideFlags: 0
