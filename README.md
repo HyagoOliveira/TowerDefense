@@ -4,7 +4,7 @@ Tower Defense game made on Unity 2020.3.48 LTS
 
 ![Tower Defense Thumbnail](/Wiki/Thumbnail.png "Tower Defense")
 
-Click [here](1) to play the last build directly on your browser.
+Click [here](https://nostgames.itch.io/tower-defense) to play the last build directly on your browser.
 
 ## Game Rules
 
@@ -15,7 +15,7 @@ Click [here](1) to play the last build directly on your browser.
 - To destroy enemies, player can buy new defenses and upgrade them with currency at any time.
 - Towers can be placed anywhere, unless it completely blocks the enemies movement.
 - The game ends when the player runs out of Health Points.
-- The player High Score is saved locally and showed at GameOver screen.
+- The player High Score is saved locally and showed at GameOver.
 
 ## How to Play
 
@@ -27,31 +27,31 @@ Click [here](1) to play the last build directly on your browser.
 
 ## Technical Details
 
-The game balance and layout details were based on the [Endless Siege](2) game.
+The game economy and layout details were based on the [Endless Siege](https://www.crazygames.com/game/endless-siege) game.
 
 ### SOLID code
 
-All scripts are following the [SOLID principles](3), where the Single Responsibility is one of the most important to develop game components. 
-Each component do one thing alone and this reduce its complexity, producing maintainable code over the years.
+All scripts are following the [SOLID principles](https://en.wikipedia.org/wiki/SOLID), where the Single Responsibility is one of the most important to develop game components. 
+Each component does one thing alone and this reduce its complexity, producing maintainable code over the years.
 
-Also classes were uncoupled to facilitate unit test. One such candidate is the class [Currency Calculator](/Assets/Scripts/Gameplay/CurrencyCalculator.cs). Unit tests can be easily created since it does not depends on the Unity API.
+Also classes were uncoupled to facilitate unit test. One such candidate is the class [CurrencyCalculator](/Assets/Scripts/Gameplay/CurrencyCalculator.cs). Unit tests can be easily created for this class since it does not depends on the Unity API.
 
-### Using ScriptableObject as Singletons
+### Using ScriptableObjects as Singletons
 
-All settings for a gameplay match are centralized at the Match Settings ScriptableObject.
+All settings for a match are centralized at the Match Settings ScriptableObject.
 
 ![Match Settings](/Wiki/MatchSettings.png "Match Settings")
 
 There you can change the initial player health and currency, the enemies waves and towers.
 
-By using a ScriptableObject, other assets (even scripts) can easily access it and consume its events, functions or properties, working like a Singleton pattern. 
+Also, by using a ScriptableObjects, other assets (even scripts) can easily access it and consume its events, functions or properties, working like a Singleton pattern. 
 
 Here is an example of a MonoBehaviour component taking action when the Scores increases:
 
 ```csharp
 using TowerDefense.Managers;
    
-public sealed class SomeClass : MonoBehaviour
+public sealed class SomeComponent : MonoBehaviour
 {
     [SerializeField] private MatchSettings settings;
 
@@ -72,9 +72,5 @@ public sealed class SomeClass : MonoBehaviour
  ![Checking Invalid Path one](/Wiki/CheckInvalidPath_00.gif "CheckInvalidPath 00")
 
  The checking also take account when other towers are blocking the path: 
- 
- ![Checking Invalid Path two](/Wiki/CheckInvalidPath_01.gif "CheckInvalidPath 01")
 
-[1]: <https://nostgames.itch.io/tower-defense>
-[2]: <https://www.crazygames.com/game/endless-siege>
-[3]: <https://en.wikipedia.org/wiki/SOLID>
+ ![Checking Invalid Path two](/Wiki/CheckInvalidPath_01.gif "CheckInvalidPath 01")
