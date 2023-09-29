@@ -63,7 +63,7 @@ namespace TowerDefense.Gameplay
             return !hasCollision;
         }
 
-        public bool CanUpgrade() => weaponIndex < weapons.Length;
+        public bool CanUpgrade() => weaponIndex + 1 < weapons.Length;
 
         public void Upgrade()
         {

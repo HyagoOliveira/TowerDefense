@@ -22,6 +22,10 @@ namespace TowerDefense.UI
         [SerializeField] private Button closeButton;
         [SerializeField] private Button upgradeButton;
 
+        [Space]
+        [SerializeField] private GameObject upgradablePanel;
+        [SerializeField] private GameObject notUpgradablePanel;
+
         public event Action OnClosed;
 
         private DefenderTower tower;
@@ -64,6 +68,10 @@ namespace TowerDefense.UI
             upgradedWeaponsCounter.text = tower.UpgradedWeaponsCount.ToString(formatter);
 
             upgradeButton.interactable = settings.CanUpgrade(tower);
+
+            var canUpgradeTower = tower.CanUpgrade();
+            upgradablePanel.SetActive(canUpgradeTower);
+            notUpgradablePanel.SetActive(!canUpgradeTower);
         }
     }
 }
