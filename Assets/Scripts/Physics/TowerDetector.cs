@@ -47,7 +47,10 @@ namespace TowerDefense.Physics
         {
             if (!HasTarget) return;
 
-            var direction = (TargetPosition - transform.position).normalized;
+            var delta = TargetPosition - transform.position;
+            delta.y = 0f;
+            var direction = delta.normalized;
+
             transform.rotation = Quaternion.LookRotation(direction);
         }
     }
