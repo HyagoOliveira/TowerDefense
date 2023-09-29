@@ -46,9 +46,16 @@ namespace TowerDefense.UI
         {
             this.tower = tower;
             ShowTowerAttributes();
+            settings.Currency.OnChanged += HandleCurrencyChanched;
         }
 
-        public void Close() => OnClosed?.Invoke();
+        public void Close()
+        {
+            OnClosed?.Invoke();
+            settings.Currency.OnChanged -= HandleCurrencyChanched;
+        }
+
+        private void HandleCurrencyChanched(int _) => UpdateUpgradeInteractivity();
 
         private void HandleCloseButtonClicked() => Close();
 
@@ -67,11 +74,15 @@ namespace TowerDefense.UI
             currentWeaponsCounter.text = tower.CurrentWeaponsCount.ToString(formatter);
             upgradedWeaponsCounter.text = tower.UpgradedWeaponsCount.ToString(formatter);
 
-            upgradeButton.interactable = settings.CanUpgrade(tower);
+            UpdateUpgradeInteractivity();
 
             var canUpgradeTower = tower.CanUpgrade();
             upgradablePanel.SetActive(canUpgradeTower);
             notUpgradablePanel.SetActive(!canUpgradeTower);
         }
+
+        private void UpdateUpgradeInteractivity() =>
+            upgradeButton.interactable = settings.CanUpgrade(tower);
+
     }
 }
