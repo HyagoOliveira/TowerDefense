@@ -15,6 +15,7 @@ namespace TowerDefense.Gameplay
     {
         [SerializeField] private string displayname = "Tower";
         [SerializeField, Min(0)] private int purchasePrice = 10;
+        [SerializeField, Min(0)] private int baseUpgradePrice = 10;
 
         [Space]
         [SerializeField] private TowerDetector detector;
@@ -25,11 +26,13 @@ namespace TowerDefense.Gameplay
 
         public string DysplayName => displayname;
         public int PurchasePrice => purchasePrice;
+        public int UpgradePrice => PurchasePrice + baseUpgradePrice * upgrades;
 
         public TowerDetector Detector => detector;
         public MaterialReplacer Material => material;
 
         private bool isPlaced;
+        private int upgrades;
 
         private void Reset()
         {
