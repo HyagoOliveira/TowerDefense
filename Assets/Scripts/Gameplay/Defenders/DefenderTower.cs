@@ -22,17 +22,21 @@ namespace TowerDefense.Gameplay
         [SerializeField] private BoxCollider boxCollider;
         [SerializeField] private MaterialReplacer material;
 
+        [Space]
+        [SerializeField] private Weapon[] weapons;
+
         public static event Action<DefenderTower> OnClicked;
 
         public string DysplayName => displayname;
         public int PurchasePrice => purchasePrice;
-        public int UpgradePrice => PurchasePrice + baseUpgradePrice * upgrades;
+        public int UpgradePrice => PurchasePrice + baseUpgradePrice * CurrentWeaponsCount;
+        public int CurrentWeaponsCount { get; private set; } = 1;
+        public int UpgradedWeaponsCount => Mathf.Min(CurrentWeaponsCount + 1, weapons.Length);
 
         public TowerDetector Detector => detector;
         public MaterialReplacer Material => material;
 
         private bool isPlaced;
-        private int upgrades;
 
         private void Reset()
         {
@@ -56,6 +60,14 @@ namespace TowerDefense.Gameplay
             boxCollider.enabled = true;
 
             return !hasCollision;
+        }
+
+        public bool CanUpgrade() => CurrentWeaponsCount < weapons.Length;
+
+        public void Upgrade()
+        {
+            if (!CanUpgrade()) return;
+            weapons[++CurrentWeaponsCount].gameObject.SetActive(true);
         }
 
         internal void Place()

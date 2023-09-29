@@ -61,6 +61,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fb46977fdc668747b082423c04c9305, type: 3}
+--- !u!114 &4711515584417610644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4958957663126098095, guid: 1fb46977fdc668747b082423c04c9305, type: 3}
+  m_PrefabInstance: {fileID: 410790526015023931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0536d9d464334191491631168a377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &630124033702459012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,6 +129,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fb46977fdc668747b082423c04c9305, type: 3}
+--- !u!114 &5507734947245352491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4958957663126098095, guid: 1fb46977fdc668747b082423c04c9305, type: 3}
+  m_PrefabInstance: {fileID: 630124033702459012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0536d9d464334191491631168a377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1133726224169924655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +201,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fb46977fdc668747b082423c04c9305, type: 3}
+--- !u!114 &5434169395413018752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4958957663126098095, guid: 1fb46977fdc668747b082423c04c9305, type: 3}
+  m_PrefabInstance: {fileID: 1133726224169924655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e0536d9d464334191491631168a377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4455515438219569334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,6 +291,22 @@ PrefabInstance:
       propertyPath: baseUpgradePrice
       value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: weapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 5507734947245352491}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 5434169395413018752}
+    - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 4711515584417610644}
     - target: {fileID: 4911102712819903256, guid: 81d781509af16ab4b87cc7a2627fbd9e, type: 3}
       propertyPath: <Price>k__BackingField
       value: 30
