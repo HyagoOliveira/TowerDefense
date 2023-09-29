@@ -13,6 +13,7 @@ namespace TowerDefense.Gameplay
 
         public bool CanPurchase(int price) => currency.Value >= price;
         public bool CanPurchase(DefenderTower tower) => CanPurchase(tower.PurchasePrice);
+        public bool CanUpgrade(DefenderTower tower) => CanPurchase(tower.UpgradePrice);
 
         public void TryPurchase(DefenderTower tower)
         {
