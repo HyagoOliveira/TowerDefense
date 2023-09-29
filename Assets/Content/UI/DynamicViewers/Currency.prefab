@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Currency
       objectReference: {fileID: 0}
+    - target: {fileID: 7467360243204982698, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+      propertyPath: m_text
+      value: <sprite="Icons" name="Currency"> 00
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467360243204982698, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+      propertyPath: m_fontSize
+      value: 71.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8783015326655840312, guid: 45f83417ad4ba63429240471afed6003, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -101,34 +109,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f83417ad4ba63429240471afed6003, type: 3}
---- !u!1 &7268225349856262324 stripped
+--- !u!1 &8682518333204791969 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2341289774839039208, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4386086827352653565, guid: 45f83417ad4ba63429240471afed6003, type: 3}
   m_PrefabInstance: {fileID: 4944955514034519132}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9186782572613990425 stripped
+--- !u!114 &2522409712813177846 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4313886336244581445, guid: 45f83417ad4ba63429240471afed6003, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7467360243204982698, guid: 45f83417ad4ba63429240471afed6003, type: 3}
   m_PrefabInstance: {fileID: 4944955514034519132}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7268225349856262324}
+  m_GameObject: {fileID: 8682518333204791969}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7417884775391442629
+--- !u!114 &5756425572444708719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7268225349856262324}
+  m_GameObject: {fileID: 8682518333204791969}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 186e3ef879035c541b64d531f51a9f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMesh: {fileID: 9186782572613990425}
+  textMesh: {fileID: 2522409712813177846}
   settings: {fileID: 11400000, guid: e6d625baf761c6a4288b2e79b8b9117e, type: 2}
+  spriteName: Currency
   format: D2

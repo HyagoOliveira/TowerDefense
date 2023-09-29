@@ -9,13 +9,20 @@ namespace TowerDefense.UI
     {
         [SerializeField] protected TMP_Text textMesh;
         [SerializeField] protected MatchSettings settings;
+        [SerializeField] protected string spriteName;
         [SerializeField] protected string format = "D2";
 
         private void Reset() => textMesh = GetComponent<TMP_Text>();
         private void OnEnable() => GetValue().OnChanged += HandleValueChanged;
         private void OnDisable() => GetValue().OnChanged -= HandleValueChanged;
 
-        private void HandleValueChanged(int value) => textMesh.text = value.ToString(format);
+        private void HandleValueChanged(int value)
+        {
+            var result = value.ToString(format);
+            var textWithSprite = $"<sprite=\"Icons\" name=\"{spriteName}\"> {result}";
+
+            textMesh.text = textWithSprite;
+        }
 
         protected abstract DynamicValue<int> GetValue();
     }
