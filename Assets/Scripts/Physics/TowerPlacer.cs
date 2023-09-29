@@ -27,8 +27,13 @@ namespace TowerDefense.Physics
 
         private Camera mainCamera;
         private DefenderTower tower;
+        private EnemySpawner enemySpawner;
 
-        private void Awake() => mainCamera = Camera.main;
+        private void Awake()
+        {
+            mainCamera = Camera.main;
+            enemySpawner = FindObjectOfType<EnemySpawner>();
+        }
 
         private void Update()
         {
@@ -54,7 +59,10 @@ namespace TowerDefense.Physics
 
             if (hasHit) transform.position = hit.point;
 
-            HasValidPosition = hasHit && HasValidUpNormal(hit.normal) && tower.CanPlace();
+            HasValidPosition = hasHit &&
+                HasValidUpNormal(hit.normal) &&
+                tower.CanPlace() &&
+                enemySpawner.IsAbleToCompletePath();
         }
 
         private void UpdateInput()
