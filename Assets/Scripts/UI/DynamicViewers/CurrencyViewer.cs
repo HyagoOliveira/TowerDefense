@@ -5,6 +5,6 @@ namespace TowerDefense.UI
     [DisallowMultipleComponent]
     public sealed class CurrencyViewer : AbstractDynamicViewer
     {
-        protected override DynamicValue<int> GetValue() => settings.Currency;
+        protected override DynamicInteger GetValue() => settings.Currency;
     }
 }

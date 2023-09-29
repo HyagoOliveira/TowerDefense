@@ -24,6 +24,6 @@ namespace TowerDefense.UI
             textMesh.text = textWithSprite;
         }
 
-        protected abstract DynamicValue<int> GetValue();
+        protected abstract DynamicInteger GetValue();
     }
 }

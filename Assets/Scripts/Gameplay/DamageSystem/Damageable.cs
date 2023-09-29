@@ -13,7 +13,7 @@ namespace TowerDefense.Gameplay
 
         public event Action OnEnergyEnded;
 
-        public DynamicValue<int> Energy { get; private set; } = new DynamicValue<int>();
+        public DynamicInteger Energy { get; private set; } = new DynamicInteger();
 
         private void Reset() => feedback = GetComponent<DamageableFeedback>();
         private void Awake() => Energy.Value = initialEnergy;

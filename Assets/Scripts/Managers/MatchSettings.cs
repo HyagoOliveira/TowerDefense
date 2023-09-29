@@ -23,10 +23,10 @@ namespace TowerDefense.Managers
         public TowerPlacer Placer { get; private set; }
         public CurrencyCalculator Calculator { get; private set; }
 
-        public DynamicValue<int> Round { get; private set; } = new DynamicValue<int>();
-        public DynamicValue<int> Score { get; private set; } = new DynamicValue<int>();
-        public DynamicValue<int> Health { get; private set; } = new DynamicValue<int>();
-        public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
+        public DynamicInteger Round { get; private set; } = new DynamicInteger();
+        public DynamicInteger Score { get; private set; } = new DynamicInteger();
+        public DynamicInteger Health { get; private set; } = new DynamicInteger();
+        public DynamicInteger Currency { get; private set; } = new DynamicInteger();
 
         internal void Initialize(TowerPlacer placer) => Placer = placer;
         internal void Enable() => Placer.OnTowerPlaced += HandleTowerPlaced;
