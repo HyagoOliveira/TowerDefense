@@ -12,11 +12,17 @@ namespace TowerDefense.Gameplay
         [SerializeField] private Transform origin;
         [SerializeField] private Transform destination;
 
+        public int Waves => settings.EnemyWaves;
         public Vector3 Origin => origin.position;
         public Vector3 Destination => destination.position;
 
-        private void OnEnable() => settings.OnEnemyWaveSpawned += HandleEnemyWaveSpawned;
-        private void OnDisable() => settings.OnEnemyWaveSpawned -= HandleEnemyWaveSpawned;
+        private int waveIndex = -1;
+
+        public void SpawnNextWave()
+        {
+            if (settings.IsGameOver) return;
+            Spawn(GetNextWave());
+        }
 
         public bool IsAbleToCompletePath()
         {
@@ -26,9 +32,24 @@ namespace TowerDefense.Gameplay
                 path.status == NavMeshPathStatus.PathComplete;
         }
 
-        private void HandleEnemyWaveSpawned(EnemyWave wave)
+        private EnemyWave GetNextWave()
         {
-            var direction = (Destination - Origin).normalized;
+            waveIndex++;
+            var hasFinishAvailableWaves = waveIndex >= Waves;
+
+            if (hasFinishAvailableWaves)
+            {
+                waveIndex = Waves - 1;
+                settings.GetEnemyWave(waveIndex).AdditionalQuantity++;
+            }
+
+            return settings.GetEnemyWave(waveIndex);
+        }
+
+        private void Spawn(EnemyWave wave)
+        {
+            var delta = Destination - Origin; delta.y = 0f;
+            var direction = delta.normalized;
             var orientation = Quaternion.LookRotation(direction);
 
             StopAllCoroutines();

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TowerDefense.Managers;
+using TowerDefense.Gameplay;
 
 namespace TowerDefense.UI
 {
@@ -9,26 +9,30 @@ namespace TowerDefense.UI
     public sealed class NextEnemyWaveButton : MonoBehaviour
     {
         [SerializeField] private Button button;
-        [SerializeField] private MatchSettings settings;
+
+        private EnemySpawner spawner;
 
         private void Reset() => button = GetComponent<Button>();
+        private void Awake() => spawner = FindObjectOfType<EnemySpawner>();
 
         private void OnEnable()
         {
             button.onClick.AddListener(HandleButtonClicked);
-            settings.OnAnyEnemyWaveStarted += HandleEnemyWaveStarted;
-            settings.OnAnyEnemyWaveFinished += HandleEnemyWaveFinished;
+
+            EnemyWave.OnStarted += HandleEnemyWaveStarted;
+            EnemyWave.OnFinished += HandleEnemyWaveFinished;
         }
 
         private void OnDisable()
         {
             button.onClick.RemoveListener(HandleButtonClicked);
-            settings.OnAnyEnemyWaveStarted -= HandleEnemyWaveStarted;
-            settings.OnAnyEnemyWaveFinished -= HandleEnemyWaveFinished;
+
+            EnemyWave.OnStarted -= HandleEnemyWaveStarted;
+            EnemyWave.OnFinished -= HandleEnemyWaveFinished;
         }
 
-        private void HandleButtonClicked() => settings.SpawnNextEnemyWave();
-        private void HandleEnemyWaveStarted() => button.interactable = false;
-        private void HandleEnemyWaveFinished() => button.interactable = true;
+        private void HandleButtonClicked() => spawner.SpawnNextWave();
+        private void HandleEnemyWaveStarted(EnemyWave _) => button.interactable = false;
+        private void HandleEnemyWaveFinished(EnemyWave _) => button.interactable = true;
     }
 }

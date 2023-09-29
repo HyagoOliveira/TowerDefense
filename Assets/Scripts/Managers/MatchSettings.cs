@@ -15,9 +15,6 @@ namespace TowerDefense.Managers
 
         public event Action OnStarted;
         public event Action OnGameOver;
-        public event Action OnAnyEnemyWaveStarted;
-        public event Action OnAnyEnemyWaveFinished;
-        public event Action<EnemyWave> OnEnemyWaveSpawned;
 
         public int Towers => towers.Length;
         public int EnemyWaves => enemyWaves.Length;
@@ -31,20 +28,8 @@ namespace TowerDefense.Managers
         public DynamicValue<int> Health { get; private set; } = new DynamicValue<int>();
         public DynamicValue<int> Currency { get; private set; } = new DynamicValue<int>();
 
-        private int currentEnemyWaveIndex;
-
         internal void Initialize(TowerPlacer placer) => Placer = placer;
-
-        internal void Enable()
-        {
-            Placer.OnTowerPlaced += HandleTowerPlaced;
-
-            foreach (var wave in enemyWaves)
-            {
-                wave.OnStarted += HandleEnemyWaveStarted;
-                wave.OnFinished += HandleEnemyWaveFinished;
-            }
-        }
+        internal void Enable() => Placer.OnTowerPlaced += HandleTowerPlaced;
 
         internal void Start()
         {
@@ -52,16 +37,7 @@ namespace TowerDefense.Managers
             OnStarted?.Invoke();
         }
 
-        internal void Disable()
-        {
-            Placer.OnTowerPlaced -= HandleTowerPlaced;
-
-            foreach (var wave in enemyWaves)
-            {
-                wave.OnStarted -= HandleEnemyWaveStarted;
-                wave.OnFinished -= HandleEnemyWaveFinished;
-            }
-        }
+        internal void Disable() => Placer.OnTowerPlaced -= HandleTowerPlaced;
 
         public DefenderTower GetTower(int index) => towers[index];
         public EnemyWave GetEnemyWave(int index) => enemyWaves[index];
@@ -88,22 +64,6 @@ namespace TowerDefense.Managers
         internal bool CanUpgrade(DefenderTower tower) =>
             !IsGameOver && tower.CanUpgrade() && Calculator.CanUpgrade(tower);
 
-        internal void SpawnNextEnemyWave()
-        {
-            if (IsGameOver) return;
-
-            currentEnemyWaveIndex++;
-
-            if (currentEnemyWaveIndex >= EnemyWaves)
-            {
-                currentEnemyWaveIndex = EnemyWaves - 1;
-                GetEnemyWave(currentEnemyWaveIndex).AdditionalQuantity++;
-            }
-
-            var wave = GetEnemyWave(currentEnemyWaveIndex);
-            OnEnemyWaveSpawned?.Invoke(wave);
-        }
-
         internal void AchieveGoal(Enemy enemy)
         {
             if (IsGameOver) return;
@@ -129,8 +89,6 @@ namespace TowerDefense.Managers
         }
 
         private void HandleTowerPlaced(DefenderTower tower) => Calculator.Purchase(tower);
-        private void HandleEnemyWaveStarted() => OnAnyEnemyWaveStarted?.Invoke();
-        private void HandleEnemyWaveFinished() => OnAnyEnemyWaveFinished?.Invoke();
 
         private void ResetValues()
         {
@@ -140,7 +98,6 @@ namespace TowerDefense.Managers
             Currency.Value = initialCurrency;
 
             IsGameOver = false;
-            currentEnemyWaveIndex = -1;
 
             Calculator = new CurrencyCalculator(Currency);
         }
