@@ -45,11 +45,13 @@ namespace TowerDefense.UI
 
         protected abstract DynamicInteger GetValue();
 
+        protected virtual string GetText(string result) =>
+            $"<sprite=\"Icons\" name=\"{spriteName}\"> {result}";
+
         private void HandleValueChanged(int value)
         {
             var result = value.ToString(format);
-            var textWithSprite = $"<sprite=\"Icons\" name=\"{spriteName}\"> {result}";
-
+            var textWithSprite = GetText(result);
             currentValue.text = textWithSprite;
         }
 

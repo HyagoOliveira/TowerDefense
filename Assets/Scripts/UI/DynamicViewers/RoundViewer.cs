@@ -6,5 +6,7 @@ namespace TowerDefense.UI
     public sealed class RoundViewer : AbstractDynamicViewer
     {
         protected override DynamicInteger GetValue() => settings.Round;
+
+        protected override string GetText(string result) => result;
     }
 }
