@@ -22,6 +22,8 @@ namespace TowerDefense.Managers
         public int Towers => towers.Length;
         public int EnemyWaves => enemyWaves.Length;
 
+        public bool IsGameOver { get; private set; }
+
         public TowerPlacer Placer { get; private set; }
         public CurrencyCalculator Calculator { get; private set; }
 
@@ -103,7 +105,7 @@ namespace TowerDefense.Managers
         {
             var newHealth = Health.Value - enemy.Damage;
 
-            if (newHealth <= 0)
+            if (!IsGameOver && newHealth <= 0)
             {
                 newHealth = 0;
                 GameOver();
@@ -130,11 +132,17 @@ namespace TowerDefense.Managers
             Score.Value = 0;
             Health.Value = initialHealth;
             Currency.Value = initialCurrency;
+
+            IsGameOver = false;
             currentEnemyWaveIndex = -1;
 
             Calculator = new CurrencyCalculator(Currency);
         }
 
-        private void GameOver() => OnGameOver?.Invoke();
+        private void GameOver()
+        {
+            IsGameOver = true;
+            OnGameOver?.Invoke();
+        }
     }
 }
